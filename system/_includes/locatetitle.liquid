@@ -1,0 +1,28 @@
+{%- assign idWithoutHtmlSymbolNames = include.matchId | replace: "&colon;", ":" | replace: "&comma;", "," | replace: "&num;", "#" -%}
+{%- assign probeUrl = nil -%}
+{%- assign titleFound = false -%}
+{%- for probe in site[layout.harvest] -%}
+{%- assign probeTitleWithoutHtmlSymbolNames = probe.title | remove: "." | replace: "&colon;", ":" | replace: "&comma;", "," | replace: "&num;", "#" | strip_html |slugify: "default" -%}
+{%- if probeTitleWithoutHtmlSymbolNames == idWithoutHtmlSymbolNames -%}
+{%- assign probeUrl = probe.url -%}
+{%- assign probeDate = probe.date -%}
+{%- assign probeSubpages = probe.subpages -%}
+{%- assign titleFound = true -%}
+{%- break -%}
+{%- endif -%}
+{%- endfor -%}
+{%- unless titleFound -%}
+{%- for probe in site[layout.harvest] -%}
+{%- assign probeHtml = probe.content | markdownify -%}
+{%- if probeHtml contains include.matchSnippetTagEnding or probeHtml contains include.matchSnippetAttributeEnding -%}
+{%- assign probeUrl = probe.url -%}
+{%- assign probeDate = probe.date -%}
+{%- assign probeSubpages = probe.subpages -%}
+{%- assign titleFound = true -%}
+{%- break -%}
+{%- endif -%}
+{%- endfor -%}
+{%- endunless -%}
+{%- assign titleUrl = probeUrl | split: "/" | last -%}
+{%- assign titleDate = probeDate -%}
+{%- assign titleSubpages = probeSubpages.size -%}

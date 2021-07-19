@@ -1,0 +1,269 @@
+---
+layout: default
+harvest: catalogus
+system:
+    showChildTags: true # Do (true) or do not (false) print tags for child pages shown on current page.
+---
+{%- assign markdownHeadings = "###### ,##### ,#### ,### ,## ,# " | split: "," -%}
+{%- assign htmlHeadings = "<h6 ,<h5 ,<h4 ,<h3 ,<h2 ,<h1 " | split: "," -%}
+{%- assign htmlHeadingEndings = "</h6>,</h5>,</h4>,</h3>,</h2>,</h1>" | split: "," -%}
+{%- assign footnoteHeadingLevel = 6 | minus: site.data.footnoteheading.level -%}
+{%- assign footnoteHeading = site.data.footnoteheading.label | strip_html | strip_newlines | strip | prepend: markdownHeadings[footnoteHeadingLevel] | normalize_whitespace | markdownify -%}
+{%- assign newline = site.snippets | where: "title", "newline" | first -%}
+{%- assign newline = newline.content | remove: "text" | strip_html | slice: 0 -%}
+{%- assign defaultFootnoteCheckboxLeft = '<input type="checkbox" id="footnoteToggle"><label for="footnoteToggle">' -%}
+{%- assign defaultFootnoteCheckboxRight = '</label>' -%}
+{%- assign defaultFootnoteNumberMarkerLeft = '<sup id="fnref:' -%}
+{%- assign defaultFootnoteNumberMarkerRight = '" class="footnote">' -%}
+{%- assign defaultFootnoteNumberMarkerClosingTags = '</a></sup>' -%}
+{%- assign defaultFootnoteListMarkerLeft = '<div class="footnotes" role="doc-endnotes">' -%}
+{%- assign defaultFootnoteListMarkerRight = '</div>' -%}
+{%- assign defaultHyperlinkMarkerLeft = '<a href="#' -%}
+{%- assign defaultTagEndingMarker = '>' -%}
+{%- assign defaultHyperlinkMarkerRight = '">' -%}
+{%- assign defaultHeadingMarkerLeft = '<h' -%}
+{%- assign defaultHeadingMarkerRight = '</h' -%}
+{%- assign defaultHeadingClosingTagSize = defaultHeadingMarkerRight.size | plus: 1 | plus: defaultTagEndingMarker.size -%}
+{%- assign defaultHeadingIdMarkerLeft = ' id="' -%}
+{%- assign defaultHeadingIdMarkerRight = '"' -%}
+{%- assign defaultHeadingIdMarkerRightTagEnding = defaultHeadingIdMarkerRight | append: defaultTagEndingMarker -%}
+{%- assign defaultHeadingIdMarkerRightAttributeEnding = defaultHeadingIdMarkerRight | append: ' ' -%}
+{%- assign footnoteMarkerDefault = '<div class="footnotes" role="doc-endnotes">' -%}
+{%- assign earliestDate = page.date -%}
+{%- assign latestDate = page.date -%}
+{%- if page.date -%}
+{%- assign dateMissingFlag = false -%}
+{%- assign dateFoundFlag = true -%}
+{%- else -%}
+{%- assign dateMissingFlag = true -%}
+{%- assign dateFoundFlag = false -%}
+{%- endif -%}
+{%- assign docs = "" | split: "," -%}
+{%- assign temp = site[layout.harvest] | where: "title", page.title | first -%}
+{%- for subpage2 in temp.subpages -%}
+{%- include bookdetails.liquid title=subpage2 level=2 -%}
+{%- if children.size > 0 -%}
+{%- assign subpage2Subpages = children -%}
+{%- for subpage3 in subpage2Subpages -%}
+{%- include bookdetails.liquid title=subpage3 level=3 -%}
+{%- if children.size > 0 -%}
+{%- assign subpage3Subpages = children -%}
+{%- for subpage4 in subpage3Subpages -%}
+{%- include bookdetails.liquid title=subpage4 level=4 -%}
+{%- if children.size > 0 -%}
+{%- assign subpage4Subpages = children -%}
+{%- for subpage5 in subpage4Subpages -%}
+{%- include bookdetails.liquid title=subpage5 level=5 -%}
+{%- if children.size > 0 -%}
+{%- assign subpage5Subpages = children -%}
+{%- for subpage6 in subpage5Subpages -%}
+{%- include bookdetails.liquid title=subpage6 level=6 -%}
+{%- endfor -%}
+{%- endif -%}
+{%- endfor -%}
+{%- endif -%}
+{%- endfor -%}
+{%- endif -%}
+{%- endfor -%}
+{%- endif -%}
+{%- endfor -%}
+<div class="page">
+{%- include breadcrumbtrail.html -%}
+{%- include prescriptiveness.html currentCollection=layout.harvest -%}
+{%- assign collectie = site.collections | where: "label", page.collection | first -%}
+{%- if collectie.datums -%}
+<div class="paginadatum">
+{%- if dateFoundFlag -%}
+{%- include nldatum.html datum=earliestDate -%}
+{{- nldatum | capitalize -}}
+{%- if latestDate > earliestDate -%}
+{%- include nldatum.html datum=latestDate -%}
+&thinsp;&ndash;&thinsp;{{- nldatum | downcase -}}
+{%- endif -%}
+{%- if dateMissingFlag -%}
+&ensp;<span class="nodate">({{- site.data.dates.some | normalize_whitespace | strip_newlines | strip | downcase -}})</span>
+{%- endif -%}
+{%- else -%}
+<span class="nodate">{{- site.data.dates.none | normalize_whitespace | strip_newlines | strip | downcase | capitalize -}}</span>
+{%- endif -%}
+</div>
+{%- endif -%}
+{%- include generictext.html generictext="-item-top" -%}
+<div class="body">
+{%- assign processedContent = "" -%}
+{%- assign anyFootnoteFound = false -%}
+{%- assign footnoteTray = "" -%}
+{%- for doc in docs -%}
+{%- assign tray = doc[0].content -%}
+{%- if doc[3] -%}
+{%- if doc[4] -%}
+{%- assign fromIndex = 6 | minus: doc[2] -%}
+{%- assign toIndex = 6 | minus: doc[1] -%}
+{%- assign tray = tray | replace: markdownHeadings[fromIndex], markdownHeadings[toIndex] -%}
+{%- else -%}
+{%- assign deltaIndex = doc[1] | minus: doc[2] | abs -%}
+{%- if doc[1] > doc[2] -%}
+{%- assign fromIndexOffset = 0 -%}
+{%- assign toIndexOffset = deltaIndex -%}
+{%- else -%}
+{%- assign fromIndexOffset = deltaIndex -%}
+{%- assign toIndexOffset = 0 -%}
+{%- endif -%}
+{%- for iterator in (0..5) offset:deltaIndex -%}
+{%- assign fromIndex = iterator | minus: fromIndexOffset -%}
+{%- assign toIndex = iterator | minus: toIndexOffset -%}
+{%- assign tray = tray | replace: htmlHeadings[fromIndex], htmlHeadings[toIndex] -%}
+{%- assign tray = tray | replace: htmlHeadingEndings[fromIndex], htmlHeadingEndings[toIndex] -%}
+{%- endfor -%}
+{%- include findsnippet.liquid searchBeginning=defaultFootnoteListMarkerLeft searchEnding=defaultFootnoteListMarkerRight string=tray -%}
+{%- if snippetFound -%}
+{%- assign anyFootnoteFound = true -%}
+{%- assign childFootnotes = tray | slice: snippetPosition, snippetSize -%}
+{%- assign tray = tray | remove: childFootnotes -%}
+{%- assign childFootnotes = childFootnotes | remove_first: searchBeginning | remove_first: "<ol>" | split: "" | reverse | join: "" | remove_first: ">vid/<" | remove_first: ">lo/<" | split: "" | reverse | join: "" | strip -%}
+{%- assign footnoteTray = footnoteTray | append: childFootnotes -%}
+{%- endif -%}
+{%- endif -%}
+{%- endif -%}
+{%- if tray.size > 0 -%}
+{%- assign processedContent = processedContent | append: tray | append: newline -%}
+{%- assign lastChar = tray | slice: -1 -%}
+{%- unless lastChar == newline -%}
+{%- assign processedContent = processedContent | append: newline -%}
+{%- endunless -%}
+{%- endif -%}
+{%- endfor -%}
+{%- include findsnippet.liquid searchBeginning=defaultFootnoteListMarkerLeft searchEnding=defaultFootnoteListMarkerRight string=page.content -%}
+{%- if snippetFound -%}
+{%- assign anyFootnoteFound = true -%}
+{%- assign parentFootnotes = page.content | slice: snippetPosition, snippetSize -%}
+{%- assign pageContent = page.content | remove: parentFootnotes -%}
+{%- assign parentFootnotes = parentFootnotes | split: "" | reverse | join: "" | remove_first: ">vid/<" | remove_first: ">lo/<" | split: "" | reverse | join: "" | strip -%}
+{%- else -%}
+{%- assign parentFootnotes = defaultFootnoteListMarkerLeft | append: '<ol>' -%}
+{%- assign pageContent = page.content -%}
+{%- endif -%}
+{%- assign footnoteTray = footnoteTray | prepend: parentFootnotes -%}
+{%- assign footnoteMarkerWithCheckbox = defaultFootnoteListMarkerLeft | prepend: site.data.footnoteheading.htmlPrepend | append: defaultFootnoteCheckboxLeft | append: footnoteHeading | append: defaultFootnoteCheckboxRight -%}
+{%- assign processedContent = processedContent | markdownify -%}
+{%- include findsnippet.liquid searchBeginning=defaultFootnoteListMarkerLeft searchEnding='<ol>' string=processedContent -%}
+{%- if snippetFound -%}
+{%- assign childrenFootnoteHeader = processedContent | slice: snippetPosition, snippetSize -%}
+{%- assign processedContent = processedContent | replace_first: childrenFootnoteHeader, footnoteTray | replace_first: defaultFootnoteListMarkerLeft, footnoteMarkerWithCheckbox -%}
+{%- else -%}
+{%- if anyFootnoteFound -%}
+{%- assign processedContent = footnoteTray | replace_first: defaultFootnoteListMarkerLeft, footnoteMarkerWithCheckbox | append: '</ol>' | append: defaultFootnoteListMarkerRight | prepend: processedContent -%}
+{%- endif -%}
+{%- endif -%}
+{%- assign processedContent = processedContent | prepend: pageContent -%}
+{%- assign searchOffset = 0 -%}
+{%- assign iteratorRange = processedContent.size -%}
+{%- for iterator in (1..iteratorRange) -%}
+{%- assign searchRange = processedContent.size | minus: searchOffset -%}
+{%- assign searchString = processedContent | slice: searchOffset, searchRange -%}
+{%- include findsnippet.liquid searchBeginning=defaultFootnoteNumberMarkerLeft searchEnding=defaultFootnoteNumberMarkerRight string=searchString -%}
+{%- if snippetFound -%}
+{%- assign snippet = searchString | slice: snippetPosition, snippetSize -%}
+{%- assign searchOffset = searchOffset | plus: snippetPosition | plus: snippetSize -%}
+{%- for pointer in (searchOffset..processedContent.size) -%}
+{%- assign probe = processedContent | slice: pointer, 10 -%}
+{%- if probe == defaultFootnoteNumberMarkerClosingTags -%}
+{%- assign footnoteNumberLength = pointer | minus: searchOffset -%}
+{%- assign footnoteNumber = processedContent | slice: searchOffset, footnoteNumberLength -%}
+{%- assign replaceFromString = snippet | append: footnoteNumber -%}
+{%- assign replaceToString = snippet | append: iterator -%}
+{%- assign processedContent = processedContent | replace_first: replaceFromString, replaceToString -%}
+{%- break -%}
+{%- endif -%}
+{%- endfor -%}
+{%- else -%}
+{%- break -%}
+{%- endif -%}
+{%- endfor -%}
+{%- assign searchOffset = 0 -%}
+{%- assign iteratorRange = processedContent.size -%}
+{%- for iterator in (1..iteratorRange) -%}
+{%- assign searchRange = processedContent.size | minus: searchOffset -%}
+{%- assign searchString = processedContent | slice: searchOffset, searchRange -%}
+{%- include findsnippet.liquid searchBeginning=defaultHyperlinkMarkerLeft searchEnding=defaultHyperlinkMarkerRight string=searchString -%}
+{%- if snippetFound -%}
+{%- assign searchOffset = searchOffset | plus: snippetPosition | plus: snippetSize -%}
+{%- assign snippetString = searchString | slice: snippetPosition, snippetSize -%}
+{%- assign headingIdSize = snippetSize | minus: defaultHyperlinkMarkerLeft.size | minus: defaultHyperlinkMarkerRight.size -%}
+{%- assign headingId = snippetString | slice: defaultHyperlinkMarkerLeft.size, headingIdSize | split: '" ' | first -%}
+{%- assign headingIdTagEndingCodeSnippet = headingId | prepend: defaultHeadingIdMarkerLeft | append: defaultHeadingIdMarkerRightTagEnding -%}
+{%- assign headingIdAttributeEndingCodeSnippet = headingId | prepend: defaultHeadingIdMarkerLeft | append: defaultHeadingIdMarkerRightAttributeEnding -%}
+{%- unless processedContent contains headingIdTagEndingCodeSnippet or processedContent contains headingIdAttributeEndingCodeSnippet -%}
+{%- include locatetitle.liquid matchId=headingId matchSnippetTagEnding=headingIdTagEndingCodeSnippet matchSnippetAttributeEnding=headingIdAttributeEndingCodeSnippet -%}
+{%- if titleFound -%}
+{%- assign replaceToString = defaultHyperlinkMarkerLeft | split: "#" | first | append: titleUrl | append: "#" | append: headingId | append: defaultHyperlinkMarkerRight -%}
+{%- assign processedContent = processedContent | replace_first: snippetString, replaceToString -%}
+{%- assign searchOffset = searchOffset | plus: titleUrl.size -%}
+{%- endif -%}
+{%- endunless -%}
+{%- else -%}
+{%- break -%}
+{%- endif -%}
+{%- endfor -%}
+{%- unless page[site.data.print.flag] -%}
+{%- assign searchOffset = 0 -%}
+{%- assign iteratorRange = processedContent.size -%}
+{%- for iterator in (1..iteratorRange) -%}
+{%- assign searchRange = processedContent.size | minus: searchOffset -%}
+{%- assign searchString = processedContent | slice: searchOffset, searchRange -%}
+{%- include findsnippet.liquid searchBeginning=defaultHeadingMarkerLeft searchEnding=defaultHeadingMarkerRight string=searchString -%}
+{%- if snippetFound -%}
+{%- assign searchOffset = searchOffset | plus: snippetPosition | plus: snippetSize -%}
+{%- assign snippetSize = snippetSize | minus: defaultHeadingMarkerRight.size | plus: defaultHeadingClosingTagSize %}
+{%- assign replaceFromString = searchString | slice: snippetPosition, snippetSize -%}
+{%- unless replaceFromString contains defaultFootnoteCheckboxLeft -%}
+{%- assign headingLevelProbe = replaceFromString | slice: 0, htmlHeadings[0].size -%}
+{%- if htmlHeadings contains headingLevelProbe -%}
+{%- include findsnippet.liquid searchBeginning=defaultHeadingIdMarkerLeft searchEnding=defaultHeadingIdMarkerRight string=replaceFromString -%}
+{%- if snippetFound -%}
+{%- assign headingIdPosition = snippetPosition | plus: defaultHeadingIdMarkerLeft.size -%}
+{%- assign headingIdSize = snippetSize | minus: defaultHeadingIdMarkerLeft.size | minus: defaultHeadingIdMarkerRight.size -%}
+{%- assign headingIdString = replaceFromString | slice: headingIdPosition, headingIdSize -%}
+{%- include findsnippet.liquid searchBeginning=defaultTagEndingMarker searchEnding=defaultHeadingMarkerRight string=replaceFromString -%}
+{%- if snippetFound -%}
+{%- assign headingTextPosition = snippetPosition | plus: defaultTagEndingMarker.size -%}
+{%- assign headingTextSize = snippetSize | minus: defaultTagEndingMarker.size | minus: defaultHeadingMarkerRight.size -%}
+{%- assign replaceFromStringBefore = replaceFromString | slice: 0, headingTextPosition -%}
+{%- assign replaceFromStringAfterPosition = headingTextPosition | plus: headingTextSize -%}
+{%- assign replaceFromStringAfterSize = replaceFromString.size | minus: replaceFromStringAfterPosition -%}
+{%- assign replaceFromStringAfter = replaceFromString | slice: replaceFromStringAfterPosition, replaceFromStringAfterSize -%}
+{%- assign headingTextString = replaceFromString | slice: headingTextPosition, headingTextSize -%}
+{%- assign headingIdTagEndingCodeSnippet = headingIdString | prepend: defaultHeadingIdMarkerLeft | append: defaultHeadingIdMarkerRightTagEnding -%}
+{%- assign headingIdAttributeEndingCodeSnippet = headingIdString | prepend: defaultHeadingIdMarkerLeft | append: defaultHeadingIdMarkerRightAttributeEnding -%}
+{%- include locatetitle.liquid matchId=headingIdString matchSnippetTagEnding=headingIdTagEndingCodeSnippet matchSnippetAttributeEnding=headingIdAttributeEndingCodeSnippet -%}
+{%- if titleFound -%}
+{%- if titleSubpages > 0 and site.data.dates.printChildDates -%}
+{%- if titleDate -%}
+{%- include nldatum.html datum=titleDate -%}
+{%- assign titleDateInsert = nldatum | capitalize | prepend: '<p><span class="paginadatum">' | append: '</span></p>' -%}
+{%- else -%}
+{%- assign titleDateInsert = site.data.dates.none | normalize_whitespace | strip_newlines | strip | downcase | capitalize | prepend: '<p><span class="nodate">' | append: '</span></p>' -%}
+{%- endif -%}
+{%- else -%}
+{%- assign titleDateInsert = "" -%}
+{%- endif -%}
+{%- assign replaceToString = defaultHyperlinkMarkerLeft | split: "#" | first | prepend: replaceFromStringBefore | append: titleUrl | append: "#" | append: headingIdString | append: defaultHyperlinkMarkerRight | append: headingTextString | append: "</a>" | append: replaceFromStringAfter | append: titleDateInsert -%}
+{%- assign processedContent = processedContent | replace_first: replaceFromString, replaceToString -%}
+{%- assign searchOffset = searchOffset | minus: replaceFromString.size | plus: replaceToString.size -%}
+{%- endif -%}
+{%- else -%}
+{%- endif -%}
+{%- else -%}
+{%- endif -%}
+{%- else -%}
+{%- endif -%}
+{%- endunless -%}
+{%- else -%}
+{%- break -%}
+{%- endif -%}
+{%- endfor -%}
+{%- endunless -%}
+{{- processedContent -}}
+</div>
+{%- include taglists.html docArray=docs -%}
+</div>

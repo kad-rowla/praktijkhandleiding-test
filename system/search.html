@@ -1,0 +1,19 @@
+---
+permalink: /zoeken
+layout: page
+title: Zoek&hellip;
+siteindex: true
+sortkey: 010
+---
+<div class="introduction">
+{% assign tekst = site.snippets | where:"title", "search-intro" | first %}
+{{ tekst.content | strip }}
+</div>
+
+<input placeholder="{{- site.data.search.placeholder | strip_html | normalize_whitespace | strip -}}" id="search" type="search" class="zoekveld" autofocus/>
+
+<div id="results"></div>
+<ul id="search_results"></ul>
+<script src="{{- site.baseurl -}}{{- site.assets_dir -}}/js/elasticlunr.min.js"></script>
+<script src="{{- site.baseurl -}}{{- site.assets_dir -}}/js/jquery.min.js"></script>
+<script src="{{- site.baseurl -}}{{- site.assets_dir -}}/js/search.js"></script>

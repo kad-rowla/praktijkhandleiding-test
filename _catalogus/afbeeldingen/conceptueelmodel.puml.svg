@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="677px" preserveAspectRatio="none" style="width:1130px;height:677px;background:#D9ECF8;" version="1.1" viewBox="0 0 1130 677" width="1130px" zoomAndPan="magnify"><defs/><g><!--class Adresseerbaar object--><rect fill="#B2D7EE" height="23.9688" id="Adresseerbaar object" style="stroke: #B2D7EE; stroke-width: 0.0;" width="151" x="535.5" y="8"/><rect fill="#137ABF" height="23.9688" style="stroke: #B2D7EE; stroke-width: 0.0;" width="151" x="535.5" y="8"/><text fill="#FFFFFF" font-family="RijksoverheidSansText-Bold" font-size="12" font-style="italic" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="145" x="538.5" y="24.1387">Adresseerbaar object</text><!--class Ligplaats--><rect fill="#B2D7EE" height="108.7969" id="Ligplaats" style="stroke: #B2D7EE; stroke-width: 0.0;" width="214" x="6" y="134.5"/><rect fill="#137ABF" height="23.9688" style="stroke: #B2D7EE; stroke-width: 0.0;" width="214" x="6" y="134.5"/><text fill="#FFFFFF" font-family="RijksoverheidSansText-Bold" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="66" x="80" y="150.6387">Ligplaats</text><line style="stroke: #B2D7EE; stroke-width: 0.0;" x1="7" x2="219" y1="158.4688" y2="158.4688"/><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="202" x="12" y="172.6792">identificatie: Objectnummering {id}</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="116" x="12" y="185.4839">status: StatusPlaats</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="134" x="12" y="198.2886">geometrie: GM_Surface</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="137" x="12" y="211.0933">geconstateerd: Indicatie</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="126" x="12" y="223.8979">documentdatum: Date</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="127" x="12" y="236.7026">documentnummer: AN</text><!--class Standplaats--><rect fill="#B2D7EE" height="108.7969" id="Standplaats" style="stroke: #B2D7EE; stroke-width: 0.0;" width="214" x="255" y="134.5"/><rect fill="#137ABF" height="23.9688" style="stroke: #B2D7EE; stroke-width: 0.0;" width="214" x="255" y="134.5"/><text fill="#FFFFFF" font-family="RijksoverheidSansText-Bold" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="87" x="318.5" y="150.6387">Standplaats</text><line style="stroke: #B2D7EE; stroke-width: 0.0;" x1="256" x2="468" y1="158.4688" y2="158.4688"/><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="202" x="261" y="172.6792">identificatie: Objectnummering {id}</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="116" x="261" y="185.4839">status: StatusPlaats</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="134" x="261" y="198.2886">geometrie: GM_Surface</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="137" x="261" y="211.0933">geconstateerd: Indicatie</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="126" x="261" y="223.8979">documentdatum: Date</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="127" x="261" y="236.7026">documentnummer: AN</text><!--class Verblijfsobject--><rect fill="#B2D7EE" height="134.4063" id="Verblijfsobject" style="stroke: #B2D7EE; stroke-width: 0.0;" width="214" x="504" y="122"/><rect fill="#137ABF" height="23.9688" style="stroke: #B2D7EE; stroke-width: 0.0;" width="214" x="504" y="122"/><text fill="#FFFFFF" font-family="RijksoverheidSansText-Bold" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="102" x="560" y="138.1387">Verblijfsobject</text><line style="stroke: #B2D7EE; stroke-width: 0.0;" x1="505" x2="717" y1="145.9688" y2="145.9688"/><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="202" x="510" y="160.1792">identificatie: Objectnummering {id}</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="127" x="510" y="172.9839">geometrie: PuntOfVlak</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="189" x="510" y="185.7886">gebruiksdoel: Gebruiksdoel [1..*]</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="114" x="510" y="198.5933">oppervlakte: Integer</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="161" x="510" y="211.3979">status: StatusVerblijfsobject</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="137" x="510" y="224.2026">geconstateerd: Indicatie</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="126" x="510" y="237.0073">documentdatum: Date</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="127" x="510" y="249.812">documentnummer: AN</text><!--class Nummeraanduiding--><rect fill="#B2D7EE" height="160.0156" id="Nummeraanduiding" style="stroke: #B2D7EE; stroke-width: 0.0;" width="319" x="753.5" y="109"/><rect fill="#137ABF" height="23.9688" style="stroke: #B2D7EE; stroke-width: 0.0;" width="319" x="753.5" y="109"/><text fill="#FFFFFF" font-family="RijksoverheidSansText-Bold" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="138" x="844" y="125.1387">Nummeraanduiding</text><line style="stroke: #B2D7EE; stroke-width: 0.0;" x1="754.5" x2="1071.5" y1="132.9688" y2="132.9688"/><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="202" x="759.5" y="147.1792">identificatie: Objectnummering {id}</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="120" x="759.5" y="159.9839">huisnummer: Integer</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="111" x="759.5" y="172.7886">huisletter: AN [0..1]</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="191" x="759.5" y="185.5933">huisnummertoevoeging: AN [0..1]</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="109" x="759.5" y="198.3979">postcode: AN [0..1]</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="307" x="759.5" y="211.2026">type adresseerbaar object: TypeAdresseerbaarObject</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="151" x="759.5" y="224.0073">status: StatusNaamgeving</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="137" x="759.5" y="236.812">geconstateerd: Indicatie</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="126" x="759.5" y="249.6167">documentdatum: Date</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="127" x="759.5" y="262.4214">documentnummer: AN</text><!--class Woonplaats--><rect fill="#B2D7EE" height="121.6016" id="Woonplaats" style="stroke: #B2D7EE; stroke-width: 0.0;" width="162" x="812" y="545"/><rect fill="#137ABF" height="23.9688" style="stroke: #B2D7EE; stroke-width: 0.0;" width="162" x="812" y="545"/><text fill="#FFFFFF" font-family="RijksoverheidSansText-Bold" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="86" x="850" y="561.1387">Woonplaats</text><line style="stroke: #B2D7EE; stroke-width: 0.0;" x1="813" x2="973" y1="568.9688" y2="568.9688"/><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="116" x="818" y="583.1792">identificatie: AN {id}</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="55" x="818" y="595.9839">naam: AN</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="150" x="818" y="608.7886">geometrie: VlakOfMultivlak</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="146" x="818" y="621.5933">status: StatusWoonplaats</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="137" x="818" y="634.3979">geconstateerd: Indicatie</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="126" x="818" y="647.2026">documentdatum: Date</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="127" x="818" y="660.0073">documentnummer: AN</text><!--class Openbare ruimte--><rect fill="#B2D7EE" height="121.6016" id="Openbare ruimte" style="stroke: #B2D7EE; stroke-width: 0.0;" width="214" x="905" y="346"/><rect fill="#137ABF" height="23.9688" style="stroke: #B2D7EE; stroke-width: 0.0;" width="214" x="905" y="346"/><text fill="#FFFFFF" font-family="RijksoverheidSansText-Bold" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="121" x="951.5" y="362.1387">Openbare ruimte</text><line style="stroke: #B2D7EE; stroke-width: 0.0;" x1="906" x2="1118" y1="369.9688" y2="369.9688"/><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="202" x="911" y="384.1792">identificatie: Objectnummering {id}</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="55" x="911" y="396.9839">naam: AN</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="154" x="911" y="409.7886">type: TypeOpenbareRuimte</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="151" x="911" y="422.5933">status: StatusNaamgeving</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="137" x="911" y="435.3979">geconstateerd: Indicatie</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="126" x="911" y="448.2026">documentdatum: Date</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="127" x="911" y="461.0073">documentnummer: AN</text><!--class Pand--><rect fill="#B2D7EE" height="121.6016" id="Pand" style="stroke: #B2D7EE; stroke-width: 0.0;" width="214" x="504" y="346"/><rect fill="#137ABF" height="23.9688" style="stroke: #B2D7EE; stroke-width: 0.0;" width="214" x="504" y="346"/><text fill="#FFFFFF" font-family="RijksoverheidSansText-Bold" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="36" x="593" y="362.1387">Pand</text><line style="stroke: #B2D7EE; stroke-width: 0.0;" x1="505" x2="717" y1="369.9688" y2="369.9688"/><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="202" x="510" y="384.1792">identificatie: Objectnummering {id}</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="134" x="510" y="396.9839">geometrie: GM_Surface</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="170" x="510" y="409.7886">oorspronkelijk bouwjaar: Year</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="109" x="510" y="422.5933">status: StatusPand</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="137" x="510" y="435.3979">geconstateerd: Indicatie</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="126" x="510" y="448.2026">documentdatum: Date</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="127" x="510" y="461.0073">documentnummer: AN</text><!--link Adresseerbaar object to Ligplaats--><path d="M515.354,34.4 C438.096,47.353 327.692,70.745 237,109 C220.537,115.944 203.806,124.998 188.184,134.488 " fill="none" id="Adresseerbaar object-Ligplaats" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="none" points="514.371,27.468,535.234,31.174,516.613,41.287,514.371,27.468" style="stroke: #000000; stroke-width: 1.0;"/><!--link Adresseerbaar object to Standplaats--><path d="M577.371,43.554 C542.801,66.74 487.702,103.694 441.89,134.419 " fill="none" id="Adresseerbaar object-Standplaats" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="none" points="573.767,37.543,594.276,32.217,581.565,49.17,573.767,37.543" style="stroke: #000000; stroke-width: 1.0;"/><!--link Adresseerbaar object to Verblijfsobject--><path d="M611,52.346 C611,71.893 611,97.801 611,121.733 " fill="none" id="Adresseerbaar object-Verblijfsobject" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="none" points="604,52.217,611,32.217,618,52.217,604,52.217" style="stroke: #000000; stroke-width: 1.0;"/><!--link Adresseerbaar object to Nummeraanduiding--><path d="M631.284,32.217 C659.391,47.759 712.703,77.24 765.453,106.41 " fill="none" id="Adresseerbaar object-Nummeraanduiding" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="769.9,108.869,763.9581,101.0144,765.524,106.4503,760.0881,108.0161,769.9,108.869" style="stroke: #000000; stroke-width: 1.0;"/><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="134" x="710" y="75.0669">heeft als nevenadres</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="24" x="610.5458" y="52.0798">0..1</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="23" x="732.6478" y="97.8628">0..*</text><!--link Adresseerbaar object to Nummeraanduiding--><path d="M686.783,26.245 C747.748,31.825 827.332,42.604 853,62 C867.4,72.882 878.501,88.1 887.002,104.209 " fill="none" id="Adresseerbaar object-Nummeraanduiding-1" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="889.331,108.774,888.8021,98.9394,887.0579,104.3206,881.6766,102.5764,889.331,108.774" style="stroke: #000000; stroke-width: 1.0;"/><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="131" x="871" y="75.0669">heeft als hoofdadres</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="24" x="694.6012" y="23.2074">0..1</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="8" x="878.8667" y="98.033">1</text><!--link Nummeraanduiding to Woonplaats--><path d="M874.822,269.218 C865.059,293.309 855.932,320.238 851,346 C840.805,399.255 842.965,414.376 851,468 C854.582,491.902 861.494,517.393 868.692,539.825 " fill="none" id="Nummeraanduiding-Woonplaats" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="870.329,544.86,871.3512,535.0643,868.7835,540.1049,863.7429,537.5372,870.329,544.86" style="stroke: #000000; stroke-width: 1.0;"/><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="34" x="852" y="411.5669">ligt in</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="23" x="847.3976" y="289.1025">0..*</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="24" x="842.3202" y="534.0211">0..1</text><!--link Nummeraanduiding to Openbare ruimte--><path d="M949.302,269.204 C960.121,292.809 971.848,318.395 982.201,340.983 " fill="none" id="Nummeraanduiding-Openbare ruimte" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="984.388,345.756,984.2729,335.9078,982.304,341.211,977.0009,339.2422,984.388,345.756" style="stroke: #000000; stroke-width: 1.0;"/><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="47" x="969" y="312.0669">ligt aan</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="23" x="928.5109" y="289.0873">0..*</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="8" x="972.7329" y="334.9051">1</text><!--link Verblijfsobject to Pand--><path d="M611,256.275 C611,283.015 611,313.788 611,340.454 " fill="none" id="Verblijfsobject-Pand" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="611,345.73,615,336.73,611,340.73,607,336.73,611,345.73" style="stroke: #000000; stroke-width: 1.0;"/><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="119" x="612" y="312.0669">maakt deel uit van</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="23" x="586.7422" y="276.5055">0..*</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="23" x="586.6703" y="334.8761">1..*</text><!--link Openbare ruimte to Woonplaats--><path d="M975.649,468.177 C961.815,491.079 946.003,517.256 931.938,540.54 " fill="none" id="Openbare ruimte-Woonplaats" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="929.333,544.852,937.4092,539.2151,931.9174,540.5717,930.5608,535.08,929.333,544.852" style="stroke: #000000; stroke-width: 1.0;"/><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="34" x="957" y="511.0669">ligt in</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="23" x="947.4153" y="487.7845">1..*</text><text fill="#000000" font-family="RijksoverheidSansText-Regular" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="8" x="925.0715" y="534.0122">1</text><!--
+@startuml
+skinparam {
+    BackgroundColor #d9ecf8
+    Shadowing false
+    class {
+        ArrowColor #000000
+        ArrowFontColor #000000
+        ArrowFontName RijksoverheidSansText-Regular
+        ArrowThickness 1
+        AttributeFontColor #000000
+        AttributeFontName RijksoverheidSansText-Regular
+        BackgroundColor #b2d7ee
+        BorderColor #b2d7ee
+        BorderThickness 0
+        FontColor #ffffff
+        FontName RijksoverheidSansText-Bold
+        FontStyle bold
+        HeaderBackgroundColor #137abf
+    }
+    note {
+        BackgroundColor #d9ecf8
+        BorderColor #d9ecf8
+        BorderThickness 0
+        FontColor #137abf
+        FontName RijksoverheidSansText-Regular
+    }
+}
+
+hide empty members
+
+hide circle
+
+hide stereotype
+
+
+
+
+"Adresseerbaar object" <|- - Ligplaats
+
+"Adresseerbaar object" <|- - Standplaats
+
+"Adresseerbaar object" <|- - Verblijfsobject
+
+"Adresseerbaar object" "0..1" - -> "0..*" Nummeraanduiding : "heeft als nevenadres"
+
+"Adresseerbaar object" "0..1" - -> "1" Nummeraanduiding : "heeft als hoofdadres"
+
+Nummeraanduiding "0..*" - -> "0..1" Woonplaats : "ligt in"
+
+Nummeraanduiding "0..*" - -> "1" "Openbare ruimte" : "ligt aan"
+
+Verblijfsobject "0..*" - -> "1..*" Pand : "maakt deel uit van"
+
+"Openbare ruimte" "1..*" - -> "1" Woonplaats : "ligt in"
+
+abstract class "Adresseerbaar object" << Objecttype >>
+
+class Ligplaats << Objecttype >> {
+    identificatie: Objectnummering {id}
+    status: StatusPlaats
+    geometrie: GM_Surface
+    geconstateerd: Indicatie
+    documentdatum: Date
+    documentnummer: AN
+}
+
+class Nummeraanduiding << Objecttype >> {
+    identificatie: Objectnummering {id}
+    huisnummer: Integer
+    huisletter: AN [0..1]
+    huisnummertoevoeging: AN [0..1]
+    postcode: AN [0..1]
+    type adresseerbaar object: TypeAdresseerbaarObject
+    status: StatusNaamgeving
+    geconstateerd: Indicatie
+    documentdatum: Date
+    documentnummer: AN
+}
+
+class "Openbare ruimte" << Objecttype >> {
+    identificatie: Objectnummering {id}
+    naam: AN
+    type: TypeOpenbareRuimte
+    status: StatusNaamgeving
+    geconstateerd: Indicatie
+    documentdatum: Date
+    documentnummer: AN
+}
+
+class Pand << Objecttype >> {
+    identificatie: Objectnummering {id}
+    geometrie: GM_Surface
+    oorspronkelijk bouwjaar: Year
+    status: StatusPand
+    geconstateerd: Indicatie
+    documentdatum: Date
+    documentnummer: AN
+}
+
+class Standplaats << Objecttype >> {
+    identificatie: Objectnummering {id}
+    status: StatusPlaats
+    geometrie: GM_Surface
+    geconstateerd: Indicatie
+    documentdatum: Date
+    documentnummer: AN
+}
+
+class Verblijfsobject << Objecttype >> {
+    identificatie: Objectnummering {id}
+    geometrie: PuntOfVlak
+    gebruiksdoel: Gebruiksdoel [1..*]
+    oppervlakte: Integer
+    status: StatusVerblijfsobject
+    geconstateerd: Indicatie
+    documentdatum: Date
+    documentnummer: AN
+}
+
+class Woonplaats << Objecttype >> {
+    identificatie: AN {id}
+    naam: AN
+    geometrie: VlakOfMultivlak
+    status: StatusWoonplaats
+    geconstateerd: Indicatie
+    documentdatum: Date
+    documentnummer: AN
+}
+@enduml
+
+PlantUML version 1.2019.08beta17(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.7.0_25-b15
+Operating System: Linux
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

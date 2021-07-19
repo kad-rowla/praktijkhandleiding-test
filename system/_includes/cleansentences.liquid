@@ -1,0 +1,10 @@
+{%- assign csText = include.sentences | strip_html | normalize_whitespace | strip -%}
+{%- if csText.size > 1 -%}
+{%- assign csFirstCharacter = csText | slice: 0 -%}
+{%- assign csTextBody = csText | remove_first: csFirstCharacter -%}
+{%- assign csLastCharacter = csText | slice: -1 -%}
+{%- unless ".!?" contains csLastCharacter -%}
+{%- assign csTextBody = csTextBody | append: "." -%}
+{%- endunless -%}
+{%- assign sentences = csFirstCharacter | capitalize | append: csTextBody -%}
+{%- endif -%}

@@ -1,0 +1,10 @@
+{%- assign itemtitle = include.itemtitle -%}
+{%- assign itemcollection = include.itemcollection -%}
+{%- assign itemtitledowncase = itemtitle | downcase | strip_html | replace: ",", "&comma;" | slugify: 'latin' | strip -%}
+{%- for doc in site[itemcollection] -%}
+{%- assign doctitle = doc.title | downcase | strip_html | slugify: 'latin' | strip -%}
+{%- if doctitle == itemtitledowncase -%}
+"{{- site.baseurl -}}{{- doc.url -}}" "{{- itemtitle -}}"
+{%- break -%}
+{%- endif -%}
+{%- endfor -%}

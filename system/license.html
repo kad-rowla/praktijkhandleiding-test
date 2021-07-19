@@ -1,0 +1,13 @@
+---
+permalink: /licentiepagina
+siteindex: false
+title: Licentie
+layout: default
+sortkey: 999
+---
+<div class="page">
+<div class="introduction">
+{%- assign attribution = site.pages | where:"title", "attribution" | first -%}
+{{ attribution.content }}
+</div>
+</div>

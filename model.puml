@@ -1,0 +1,244 @@
+@startuml
+
+'' PlantUML Class Diagram
+'' https://www.plantuml.com/plantuml
+
+skinparam defaultFontColor black
+skinparam defaultFontName Lucida Sans
+skinparam defaultFontSize 11
+skinparam defaultFontStyle normal
+skinparam shadowing false
+skinparam wrapWidth 250
+skinparam class {
+    ArrowColor #70a426
+    ArrowFontSize 10
+    ArrowThickness 1.5
+    AttributeIconSize 0
+    BackgroundColor #ffffff
+    BorderColor #007bc7
+    BorderThickness 2.5
+    FontColor #007bc7
+    FontSize 12
+    FontStyle bold
+}
+
+hide circle
+hide empty members
+'' hide attributes
+'' hide methods
+hide namespace
+'' hide stereotype
+
+'' hide Site
+hide Snippet
+'' hide <<Gestructureerd datatype>>
+'' hide <<Referentielijst>>
+
+'' =================================================================================================
+
+title Conceptual information model for publishing linked data-specification details on the web using Jekyll as a static site generator
+
+Site o-- "1..*" Collection
+Site *-- "1..*" Overview
+Site *-- "1..*" Layout
+
+Collection "*" --> "+ origin\n0..1" Collection
+Collection o-- "*" Article
+
+Article "*" --> "+ container\n1" Collection
+Article "*" --> "+ subarticle\nCollection\n0..1" Collection
+Article "*" --> "+ layout\n1" Layout
+'' Jekyll expects a layout variable in the front matter of each page
+
+Tag -|> Article
+Article "*" --> "+ related\n*" Tag
+
+Overview "0..1" -> "+ harvest\n1" Collection
+Overview "*" --> "+ layout\n1" Layout
+
+Layout "*" --> "+ harvest\n0..1" Collection
+Layout "1" --> "+ filter\n0..1" Collection
+Layout "*" --> "+ layout\n0..1" Layout
+
+Collection *-- "*" Snippet
+Article "*" --> "*" Snippet
+Overview "*" --> "*" Snippet
+Layout "*" --> "*" Snippet
+Snippet "*" --> "*" Snippet
+
+Article "1" --> "+ tableOfContents \n0..1" Article
+
+abstract class Site <<objectType>> {
+''    --definition--
+    --fields--
+    + baseURL: CharacterString [1..1] {classifier}
+    + license: CharacterString [1..1]
+''    --methods--
+''    --constraints--
+''    --encoding--
+}
+
+abstract class Collection <<objectType>> {
+    --definition--
+    Set of articles that describe similar concepts
+    --fields--
+    + label: CharacterString [1..1] {classifier}
+    + alias: CharacterString [0..1]
+    + output: Boolean [1..1]
+    + prescriptiveness: Prescriptiveness [0..1]
+    + referralHighlighting: Boolean [0..1]
+    + searchable: Boolean [1..1]
+    + showDates: Boolean [1..1]
+    + taggable: Boolean [1..1]
+''    --methods--
+    --constraints--
+    + prescriptiveness is required if output is true
+    + referralHighlighting is required if taggable is true
+    --encoding--
+    YAML
+}
+
+'' class Prescriptiveness <<codeList>> {
+class Prescriptiveness <<enumeration>> {
+    --definition--
+    Valid values for the prescriptiveness of all Articles in a Collection
+    --values--
+    + descriptive
+    + prescriptive
+}
+
+class Article <<objectType>> {
+    --definition--
+    A self-contained unit of discourse with its metadata
+    --fields--
+    + title: CharacterString [1..1] {classifier}
+''    + collectionLabel: CharacterString [1..1] {classifier}
+    + content: CharacterString [1..1]
+    + date: Date [0..1]
+    + description: CharacterString [0..1]
+    + editor: CharacterString [0..1]
+    + hasDiagrams: Boolean [0..1]
+    + sortKey: CharacterString [0..1]
+''    --methods--
+    --constraints--
+    + title must be unique within the Collection
+    + all Articles in a Collection must have the same Layout
+    + sortKey must be either unique or empty for all Articles in the Collection
+    + an Article should not tag itself
+    + a table of contents may only reference headings inside the Article itself
+''    + subarticleCollection is required if an Article is the parent of subarticles
+''    + all subarticles to an Article must be in the same Collection
+    --encoding--
+    Kramdown with YAML front matter (and sometimes Mermaid diagrams or Liquid or both)
+}
+
+abstract class Tag <<objectType>> {
+    --definition--
+    Article in a taggable Collection
+''    --fields--
+''    --methods--
+''    --constraints--
+''    --encoding--
+}
+
+class Overview <<objectType>> {
+    --definition--
+    Template for the index page of a collection
+    --fields--
+    + fileName [1..1] {classifier}
+    + alias: CharacterString [0..1]
+    + hasDiagrams: Boolean [0..1]
+    + permalink: CharacterString [0..1]
+    + siteIndex: Boolean [0..1]
+    + sortKey: CharacterString [1..1]
+    + sortOrder: SortOrder [1..1]
+    + title: CharacterString [1..1]
+    --methods--
+    + overviewWrapper()
+    --constraints--
+    + sortKey for the site menu must be unique
+    --encoding--
+    HTML with YAML front matter and Liquid
+}
+
+class Layout <<objectType>> {
+    --definition--
+    Template for the body of a page
+    --fields--
+    + fileName [1..1] {classifier}
+''    --methods--
+''    + contentWrapper()
+    --constraints--
+    + the base default Layout must not reference any Layout
+    + all other Layouts must reference a Layout
+    + all references must ultimately lead to the base default Layout
+    + circular references are not allowed
+    + a filter relation requires a harvest relation
+    --encoding--
+    HTML with YAML front matter and Liquid
+}
+
+class NonBookLayout <<objectType>> {
+    --definition--
+    Template for the body of a non-book page
+    --fields--
+    + showSubarticles: Boolean [0..1]
+    --methods--
+    + contentWrapper()
+    + subarticleOverviewWrapper()
+''    --constraints--
+''    --encoding--
+}
+
+class Snippet <<objectType>> {
+    --definition--
+    Text snippet with its metadata
+    --fields--
+    + title: CharacterString [1..1] {classifier}
+    + content: CharacterString [1..1]
+''    --methods--
+''    --constraints--
+    --encoding--
+    Kramdown with YAML front matter (and sometimes Mermaid diagrams or Liquid or both)
+}
+
+class SortOrder <<enumeration>> {
+    --definition--
+    Valid values for list sorting
+    --values--
+    + alphabetical
+    + chronological
+    + sortkey
+}
+
+class BookPart <<objectType>> {
+    --definition--
+    Ordered part of a book with a book layout
+    --fields--
+    + bookindex: Boolean [1..1]
+''    --methods--
+    --constraints--
+    + sortKey is required for the book index
+    + sortKey must be unique within the Collection
+''    --encoding--
+}
+
+abstract class BookLayout <<objectType>> {
+    --definition--
+    Template for the body of a book page
+''    --fields--
+    --methods--
+    + bookPartsWrapper()
+    + bookPrintWrapper()
+''    --constraints--
+''    --encoding--
+}
+
+BookLayout "*" --> "+ harvest\n1" Collection
+BookPart --|> Article
+BookLayout --|> Layout
+NonBookLayout --|> Layout
+BookPart "1" --> "+ subpages\n*" BookPart
+BookPart "*" --> "+ layout\n1" BookLayout
+
+@enduml

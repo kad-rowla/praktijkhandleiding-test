@@ -1,0 +1,6 @@
+{% assign generieketekst = include.generictext %}
+<div class="{{- generieketekst | normalize_whitespace | slugify: 'latin' | strip -}}">
+{% assign generieketekstnaam = page.layout | append: generieketekst | slugify: 'latin' | downcase | strip %}
+{% assign generieketekstinhoud = site.snippets | where:"title", generieketekstnaam | first %}
+{{ generieketekstinhoud.content | strip }}
+</div>

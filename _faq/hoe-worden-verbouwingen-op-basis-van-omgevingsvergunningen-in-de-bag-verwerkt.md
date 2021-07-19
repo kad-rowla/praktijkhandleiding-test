@@ -1,0 +1,13 @@
+---
+layout: faq
+title: Hoe worden verbouwingen op basis van omgevingsvergunningen in de BAG verwerkt?
+date: 2018-07-01
+description: Bij verbouwingen waarbij sprake is van een omgevingsvergunning worden de mutaties doorgevoerd op het moment dat de vergunning wordt verleend. Daarbij is het belangrijk dat de feitelijke situatie wordt geregistreerd.
+trefwoorden: ambtelijke verklaring, nieuwbouw, verbouwing, brondocument, omgevingsvergunning
+---
+
+# Hoe worden verbouwingen op basis van omgevingsvergunningen in de BAG verwerkt?
+
+Alleen bij nieuwbouw wordt in de BAG de voortgang van de bouw bijgehouden aan de hand van de volgende statussen: `Bouwvergunning verleend` en `Bouw gestart`. Bij verbouwingen waarbij sprake is van een omgevingsvergunning (splitsingen, samenvoegingen, ingrijpende verbouwingen) worden de mutaties doorgevoerd op het moment dat de vergunning wordt verleend. Daarbij is het belangrijk dat de feitelijke situatie wordt geregistreerd. Als een verblijfsobject na vergunningverlening nog enige tijd blijft bestaan, behoudt het de status `in gebruik`. Het nieuwe verblijfsobject dat ontstaat of de meerdere nieuwe verblijfsobjecten die ontstaan, krijgt of krijgen dan de status `gevormd`. De nieuwe verblijfsobjecten hoeven niet noodzakelijkerwijs een oud verblijfsobject met hetzelfde adres te vervangen willen ze voor de status `gevormd` in aanmerking komen. Bij voltooiing van de verbouwing, splitsing of samenvoeging wordt de status van verblijfsobjecten (en de bijbehorende nummeraanduidingen) die door de verbouwing 'verdwijnen', gezet op `Ingetrokken`. De status van nieuwe verblijfsobjecten wordt daarbij gezet op `in gebruik (niet ingemeten)`, of `in gebruik` als de geometrie al bekend is. Hiervoor wordt een ambtelijke verklaring opgesteld dat dient als voor het intrekken van verblijfsobject en nummeraanduiding. De datum begin geldigheid is de datum van de ambtelijke verklaring. Na de verbouwing wordt zo nodig opnieuw ingemeten en wordt de status op basis van een ambtelijke verklaring gezet op `in gebruik`. De gemeente dient (aantoonbaar) te waarborgen dat de definitieve situatie goed geregistreerd wordt, als dat niet meteen bij de vergunningverlening gebeurt: er mogen geen 'spookhuizen' voor gaan komen in de BAG.
+
+Mocht een verbouwing toch niet uitgevoerd worden, dan wordt hiervan een ambtelijke verklaring opgemaakt op het moment dat gemeld of geconstateerd wordt dat de verbouwing niet doorgaat: de 'oude' gegevens worden op basis van die ambtelijke verklaring weer 'hersteld' met als datum begin geldigheid de datum van de ambtelijke verklaring. De niet-gerealiseerde verblijfsobjecten en nummeraanduidingen krijgen daarbij de status `Niet-gerealiseerd verblijfsobject` resp. `Naamgeving ingetrokken`.

@@ -1,0 +1,26 @@
+{%- assign searchBeginning = include.searchBeginning -%}
+{%- assign searchEnding = include.searchEnding -%}
+{%- assign string = include.string -%}
+{%- assign snippetFound = false -%}
+{%- assign snippetPosition = 0 -%}
+{%- assign snippetSize = 0 -%}
+{%- if string contains searchBeginning and string contains searchEnding -%}
+{%- assign searchRange1 = string.size | minus: searchBeginning.size -%}
+{%- for pointer1 in (0..searchRange1) -%}
+{%- assign part = string | slice: pointer1, searchBeginning.size -%}
+{%- if part == searchBeginning -%}
+{%- assign snippetPosition = pointer1 -%}
+{%- assign pointer2Start = snippetPosition | plus: searchBeginning.size -%}
+{%- assign searchRange2 = string.size | minus: searchEnding.size -%}
+{%- for pointer2 in (pointer2Start..searchRange2) -%}
+{%- assign part = string | slice: pointer2, searchEnding.size -%}
+{% if part == searchEnding %}
+{%- assign snippetSize = pointer2 | minus: snippetPosition | plus: searchEnding.size | minus: 0 -%}
+{%- assign snippetFound = true -%}
+{%- break -%}
+{%- endif -%}
+{%- endfor -%}
+{%- break -%}
+{%- endif -%}
+{%- endfor -%}
+{%- endif -%}

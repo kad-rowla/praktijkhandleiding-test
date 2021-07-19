@@ -1,0 +1,11 @@
+{%- assign inputString = include.string -%}
+{%- assign removeListTitle = include.filter -%}
+{%- assign removeList = site.data[removeListTitle] -%}
+{%- assign string = inputString | prepend: " " | append: " " -%}
+{%- if removeList.size > 0 -%}
+{%- for word in removeList -%}
+{%- assign wordMask = word | prepend: " " | append: " " -%}
+{%- assign string = string | replace: wordMask, " " -%}
+{%- endfor -%}
+{%- endif -%}
+{%- assign string = string | normalize_whitespace | strip -%}

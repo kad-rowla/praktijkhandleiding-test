@@ -1,0 +1,7 @@
+---
+layout: page
+---
+
+{%- assign harvest = page.harvest | downcase -%}
+{%- assign harvested = site[harvest] -%}
+{%- include themaoverzicht.html verzameling=harvested -%}

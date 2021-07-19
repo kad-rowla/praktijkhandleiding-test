@@ -1,0 +1,45 @@
+{%- assign path = "/fonts/" | prepend: site.assets_dir | prepend: site.baseurl -%}
+<style type="text/css">
+{% if site.customfont.regular.file or site.customfont.italic.file or site.customfont.bold.file or site.customfont.bolditalic.file or site.customfont.code.file %}
+{% if site.customfont.regular.file %}
+@font-face {
+font-family: "CustomFont";
+src: url("{{- site.customfont.regular.file | prepend: path -}}"){%-if site.customfont.regular.format%} format("{{-site.customfont.regular.format-}}{%-endif-%}");
+font-style: normal;
+font-weight: normal
+}
+{% endif %}
+{% if site.customfont.italic.file %}
+@font-face {
+font-family: "CustomFont";
+src: url("{{- site.customfont.italic.file | prepend: path -}}"){%-if site.customfont.italic.format%} format("{{-site.customfont.italic.format-}}{%-endif-%}");
+font-style: italic;
+font-weight: normal
+}
+{% endif %}
+{% if site.customfont.bold.file %}
+@font-face {
+font-family: "CustomFont";
+src: url("{{- site.customfont.bold.file | prepend: path -}}"){%-if site.customfont.bold.format%} format("{{-site.customfont.bold.format-}}{%-endif-%}");
+font-style: normal;
+font-weight: bold
+}
+{% endif %}
+{% if site.customfont.bolditalic.file %}
+@font-face {
+font-family: "CustomFont";
+src: url("{{- site.customfont.bolditalic.file | prepend: path -}}"){%-if site.customfont.bolditalic.format%} format("{{-site.customfont.bolditalic.format-}}{%-endif-%}");
+font-style: italic;
+font-weight: bold
+}
+{% endif %}
+{% if site.customfont.code.file %}
+@font-face {
+font-family: "CustomCodeFont";
+src: url("{{- site.customfont.code.file | prepend: path -}}"){%-if site.customfont.code.format%} format("{{-site.customfont.code.format-}}{%-endif-%}");
+font-style: normal;
+font-weight: normal
+}
+{% endif %}
+{% endif %}
+</style>

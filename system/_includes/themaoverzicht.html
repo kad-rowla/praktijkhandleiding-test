@@ -1,0 +1,57 @@
+{% assign verzameling = include.verzameling %}
+
+{% include breadcrumbtrail.html %}
+{% include prescriptiveness.html currentCollection=page.harvest %}
+
+<div class="introduction">
+{% assign naam = page.harvest | slugify: 'latin' | downcase | strip | append: "-top" %}
+{% assign boven = site.snippets | where:"title", naam | first %}
+{{ boven.content | strip }}
+</div>
+
+{% assign missing = site.data.lists.no_description | strip_html | normalize_whitespace | strip | markdownify %}
+{% include cleansentences.liquid sentences=missing %}
+{% assign missing = sentences %}
+
+<div class="toc">
+{% assign sortOrder = page.sortorder | downcase %}
+{% if sortOrder == "chronological" %}
+{% assign alphabetical = verzameling | sort: "title" | reverse %}
+{% assign collectie = alphabetical | sort: "date" | reverse %}
+{% elsif sortOrder == "sortkey" %}
+{% assign alphabetical = verzameling | sort_natural: "title" %}
+{% assign collectie = alphabetical | sort: "sortkey" %}
+{% else %}
+{% assign collectie = verzameling | sort_natural: "title" %}
+{% endif %}
+<dl>
+{% for item in collectie %}
+{% unless sortOrder == "chronological" and item.date == null %}
+<dt id="{{- item.title | slugify: 'latin' -}}" class="lijstsectie">
+<a href="{{- site.baseurl -}}{{- item.url -}}">
+{{- item.title -}}
+</a>
+<span class="itemdetails">
+({{- item.date | date: "%Y-%m-%d" -}})
+</span>
+</dt>
+{% include cleansentences.liquid sentences=item.description %}
+{% if sentences %}
+<dd class="lijstitem-omschrijving">
+{{ sentences }}
+</dd>
+{% else %}
+<dd class="lijstitem-omschrijving missing">
+{{ missing }}
+</dd>
+{% endif %}
+{% endunless %}
+{% endfor %}
+</dl>
+</div>
+
+<div>
+{% assign naam = page.harvest | slugify: 'latin' | downcase | strip | append: "-bottom" %}
+{% assign onder = site.snippets | where:"title", naam | first %}
+{{ onder.content | strip }}
+</div>

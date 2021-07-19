@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 304 204">
+
+   <defs>
+        <style>
+            .canvas {fill:#f0f0f0}
+            .gedeeld {fill:#ffffff;stroke:#000000;stroke-width:1}
+            .praktijk {fill:#b5e61d;stroke:#000000;stroke-width:1}
+            .apotheek {fill:#99d9ea;stroke:#000000;stroke-width:1}
+            .doorgang {stroke:#f0f0f0;stroke-width:1;stroke-dasharray:2,2}
+            .markering {stroke:#ff0000;stroke-width:1.5}
+            .tekst {font-size:4pt;font-family:arial;fill:#000000;text-anchor:middle}
+        </style>
+
+    </defs>
+
+    <title>Medisch centrum</title>
+
+    <rect class="canvas" x="-2" y="-2" width="100%" height="100%"/>
+
+    <g class="praktijk">
+        <path id="wachtkamer" d="M0 40 h20 v-20 h40 v70 h-60 Z"/>
+        <path id="entree" d="M20 90 h40 v-70 h20 v50 h20 v20 h-20 v20 h-60 Z"/>
+    </g>
+
+    <!-- <g class="praktijk"> -->
+    <g class="praktijk">
+        <path id="frontoffice" d="M100 20 h40 v50 h-60 v-30 h20 Z"/>
+        <path id="backoffice" d="M80 20 h20 v20 h-20 Z"/>
+        <path id="lab" d="M140 20 h20 v30 h-20 Z"/>
+        <path id="opslag" d="M140 50 h20 v20 h-20 Z"/>
+        <path id="behandelkamer" d="M160 20 h40 v50 h-40 Z"/>
+        <path id="spreekkamer1" d="M200 0 h40 v20 h-20 v50 h-20 Z"/>
+        <path id="spreekkamer2" d="M240 0 h60 v50 h-60 Z"/>
+        <path id="spreekkamer3" d="M240 50 h60 v50 h-60 Z"/>
+        <path id="spreekkamer4" d="M240 100 h60 v50 h-60 Z"/>
+        <path id="hal" d="M220 90 h-120 v-20 h120 v-50 h20 v130 h-20 h40 v20 h-100 v-20 h40 v-20 h20 v-20"/>
+        <path id="pantry" d="M220 90 h-20 v40 h20 v-20"/>
+        <path id="containerruimte" d="M220 170 h40 v30 h-40 Z"/>
+        <path id="berging" d="M180 170 h40 v30 h-40 Z"/>
+        <path id="wc2" d="M160 130 h40 v20 h-40 Z"/>
+    </g>
+
+    <!-- <g class="apotheek"> -->
+    <g class="praktijk">
+        <path id="wc1" d="M160 110 h40 v20 h-40 Z"/>
+        <path id="koffieruimte" d="M140 90 h60 v20 h-60 Z"/>
+        <path id="spreekkamer5" d="M100 90 h40 v20 h-40 Z"/>
+        <path id="kantoor" d="M80 90 h20 v20 h-20 Z"/>
+        <path id="apotheek" d="M20 110 h140 v60 h-140 Z"/>
+    </g>
+
+    <g class="doorgang">
+        <path id="buiten-entree" d="M20 92 v16"/>
+        <path id="wachtkamer-entree" d="M60 62 v16"/>
+        <path id="entree-apotheek" d="M62 110 h16"/>
+        <path id="kantoor-apotheek" d="M82 110 h16"/>
+        <path id="spreekkamer5-apotheek" d="M122 110 h16"/>
+        <path id="koffieruimte-apotheek" d="M142 110 h16"/>
+        <path id="apotheek-wc1" d="M160 112 v16"/>
+        <path id="entree-hal" d="M100 72 v16"/>
+        <path id="backoffice-frontoffice" d="M82 40 h16"/>
+        <path id="frontoffice-hal" d="M102 70 h16"/>
+        <path id="frontoffice-lab" d="M140 32 v16"/>
+        <path id="lab-behandelkamer" d="M160 32 v16"/>
+        <path id="opslag-hal" d="M142 70 h16"/>
+        <path id="behandelkamer-hal" d="M182 70 h16"/>
+        <path id="spreekkamer1-hal" d="M220 32 v16"/>
+        <path id="hal-spreekkamer2" d="M240 22 v16"/>
+        <path id="hal-spreekkamer3" d="M240 72 v16"/>
+        <path id="hal-spreekkamer4" d="M240 122 v16"/>
+        <path id="hal-containerruimte" d="M222 170 h16"/>
+        <path id="hal-berging" d="M182 170 h16"/>
+        <path id="hal-wc2" d="M200 132 v16"/>
+    </g>
+
+    <g class="tekst">
+        <text x="30" y="60">wachtkamer</text>
+        <text x="50" y="100">gedeelde entree</text>
+        <text x="90" y="30">backoffice</text>
+        <text x="110" y="55">frontoffice</text>
+        <text x="150" y="35">lab</text>
+        <text x="150" y="60">opslag</text>
+        <text x="180" y="45">behandelkamer</text>
+        <text x="220" y="10">spreekkamer 1</text>
+        <text x="270" y="25">spreekkamer 2</text>
+        <text x="270" y="75">spreekkamer 3</text>
+        <text x="270" y="125">spreekkamer 4</text>
+        <text x="170" y="80">hal</text>
+        <text x="210" y="110">pantry</text>
+        <text x="240" y="185">containerruimte</text>
+        <text x="200" y="185">berging</text>
+        <text x="180" y="120">wc1</text>
+        <text x="180" y="140">wc2</text>
+        <text x="170" y="100">koffieruimte</text>
+        <text x="120" y="100">spreekkamer 5</text>
+        <text x="90" y="100">kantoor</text>
+        <text x="90" y="140">apotheek</text>
+    </g>
+
+    <g>
+        <!-- WIJZIGINGEN HIERONDER INTEKENEN -->
+
+        <g class="markering">
+            <path id="apotheek-hal" d="M160 152 v16"/>
+            <path id="apotheek-wc2" d="M160 132 v16"/>
+            <path id="hal-wc2" d="M200 132 v16"/>
+        </g>
+
+        <g class="doorgang">
+            <path id="apotheek-hal" d="M160 152 v16"/>
+            <path id="apotheek-wc2" d="M160 132 v16"/>
+        </g>
+
+    </g>
+
+</svg>

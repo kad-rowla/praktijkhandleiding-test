@@ -1,0 +1,147 @@
+@startuml
+skinparam {
+    BackgroundColor #d9ecf8
+'     DefaultFontName RijksoverheidSansText-Regular
+'     LineType ortho
+'     LineType polyline
+'     MinClassWidth 200
+    Shadowing false
+'     WrapWidth 120
+    class {
+        ArrowColor #000000
+        ArrowFontColor #000000
+        ArrowFontName RijksoverheidSansText-Regular
+        ArrowThickness 1
+        AttributeFontColor #000000
+        AttributeFontName RijksoverheidSansText-Regular
+        BackgroundColor #b2d7ee
+        BorderColor #b2d7ee
+        BorderThickness 0
+        FontColor #ffffff
+        FontName RijksoverheidSansText-Bold
+        FontStyle bold
+        HeaderBackgroundColor #137abf
+    }
+    note {
+        BackgroundColor #d9ecf8
+        BorderColor #d9ecf8
+        BorderThickness 0
+        FontColor #137abf
+        FontName RijksoverheidSansText-Regular
+    }
+}
+
+hide empty members
+
+hide circle
+
+hide stereotype
+
+' hide AbstractObject
+
+' hide Waardelijsten
+
+' together {
+'     class Ligplaats
+'     class Standplaats
+'     class Verblijfsobject
+' }
+
+"Adresseerbaar object" <|-- Ligplaats
+
+"Adresseerbaar object" <|-- Standplaats
+
+"Adresseerbaar object" <|-- Verblijfsobject
+
+"Adresseerbaar object" "0..1" --> "0..*" Nummeraanduiding : "heeft als nevenadres"
+' Note on link: nevenadres
+
+"Adresseerbaar object" "0..1" --> "1" Nummeraanduiding : "heeft als hoofdadres"
+' Note on link: hoofdadres
+
+Nummeraanduiding "0..*" --> "0..1" Woonplaats : "ligt in"
+' Note on link: gerelateerde woonplaats
+
+Nummeraanduiding "0..*" --> "1" "Openbare ruimte" : "ligt aan"
+' Note on link: gerelateerde openbare ruimte
+
+Verblijfsobject "0..*" --> "1..*" Pand : "maakt deel uit van"
+' Note on link: gerelateerd pand
+
+"Openbare ruimte" "1..*" --> "1" Woonplaats : "ligt in"
+' Note on link: gerelateerde woonplaats
+
+abstract class "Adresseerbaar object" << Objecttype >>
+
+class Ligplaats << Objecttype >> {
+    identificatie: Objectnummering {id}
+    status: StatusPlaats
+    geometrie: GM_Surface
+    geconstateerd: Indicatie
+    documentdatum: Date
+    documentnummer: AN
+}
+
+class Nummeraanduiding << Objecttype >> {
+    identificatie: Objectnummering {id}
+    huisnummer: Integer
+    huisletter: AN [0..1]
+    huisnummertoevoeging: AN [0..1]
+    postcode: AN [0..1]
+    type adresseerbaar object: TypeAdresseerbaarObject
+    status: StatusNaamgeving
+    geconstateerd: Indicatie
+    documentdatum: Date
+    documentnummer: AN
+}
+
+class "Openbare ruimte" << Objecttype >> {
+    identificatie: Objectnummering {id}
+    naam: AN
+    type: TypeOpenbareRuimte
+    status: StatusNaamgeving
+    geconstateerd: Indicatie
+    documentdatum: Date
+    documentnummer: AN
+}
+
+class Pand << Objecttype >> {
+    identificatie: Objectnummering {id}
+    geometrie: GM_Surface
+    oorspronkelijk bouwjaar: Year
+    status: StatusPand
+    geconstateerd: Indicatie
+    documentdatum: Date
+    documentnummer: AN
+}
+
+class Standplaats << Objecttype >> {
+    identificatie: Objectnummering {id}
+    status: StatusPlaats
+    geometrie: GM_Surface
+    geconstateerd: Indicatie
+    documentdatum: Date
+    documentnummer: AN
+}
+
+class Verblijfsobject << Objecttype >> {
+    identificatie: Objectnummering {id}
+    geometrie: PuntOfVlak
+    gebruiksdoel: Gebruiksdoel [1..*]
+    oppervlakte: Integer
+    status: StatusVerblijfsobject
+    geconstateerd: Indicatie
+    documentdatum: Date
+    documentnummer: AN
+}
+
+class Woonplaats << Objecttype >> {
+    identificatie: AN {id}
+    naam: AN
+    geometrie: VlakOfMultivlak
+    status: StatusWoonplaats
+    geconstateerd: Indicatie
+    documentdatum: Date
+    documentnummer: AN
+}
+@enduml

@@ -1,0 +1,12 @@
+{%- assign dagen ="maandag|dinsdag|woensdag|donderdag|vrijdag|zaterdag|zondag" | split: "|" -%}
+{%- assign maanden = "januari|februari|maart|april|mei|juni|juli|augustus|september|oktober|november|december" | split: "|" -%}
+{%- capture nldatum -%}
+{%- assign datum = include.datum -%}
+{%- assign d = datum | date: "%u" | minus: 1 -%}
+{{- dagen[d] }}
+{{ datum | date: "%-d" }}
+{% assign m = datum | date: "%-m" | minus: 1 %}
+{{ maanden[m] }}
+{{ datum | date: "%Y" -}}
+{%- endcapture -%}
+{%- assign nldatum = nldatum | strip -%}

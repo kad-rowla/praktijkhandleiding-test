@@ -1,0 +1,56 @@
+# Linked-data related settings.
+
+context:
+    version: "1.1" # Comment
+    vocabulary: "https://schema.org/" # Comment
+
+script:
+    type: "application/json+ld" # Comment
+
+publisher: # Comment.
+    type: "Organization" # https://schema.org/Organization
+#    url: "https://www.kadaster.nl/zakelijk/registraties/basisregistraties/bag" # Comment
+
+subjectOf:
+    id: "https://bag.basisregistraties.overheid.nl/"
+    type: "Dataset" # https://schema.org/Dataset
+
+# Prescriptiveness-related settings.
+prescriptiveness:
+    descriptive: NotInForce # https://schema.org/NotInForce
+    prescriptive: InForce # https://schema.org/InForce
+
+# Hyperlink-related settings.
+source:
+    label: Authentieke bron
+    print: true # Do (true) or do not (false) show the formal source of a page if available.
+
+# Tag-hierarchy related settings.
+# Tag names below must be unique and different from collection names and should only include regex: [a-z0-9_]
+hierarchy: # Please sort manually by label_qualifier
+    related:
+        label_qualifier: verwant
+        skos_qualifier: related
+        tag:
+            outbound: related
+            inbound: related
+    parent:
+        label_qualifier: breder
+        skos_qualifier: broader
+        tag:
+            outbound: broader
+            inbound: narrower
+    child:
+        label_qualifier: nauwer
+        skos_qualifier: narrower
+        tag:
+            outbound: narrower
+            inbound: broader
+parity:
+    flag: default # Value for the outbound and inbound tags below that indicates that there is no tag hierarchy
+    related:
+        label_qualifier:
+        skos_qualifier: related
+        tag:
+            outbound: default
+            inbound: default

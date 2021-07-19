@@ -1,0 +1,120 @@
+---
+layout: default
+title: Beheer
+permalink: /beheer
+---
+<div class="introduction">
+{% assign introtext = site.snippets | where: "title", "janitor-intro" | first | strip %}
+{{ introtext }}
+</div>
+{%- assign errorCollection = "" | split: "," -%}
+{%- assign taggableCollections = site.collections | where: "taggable", "true" | map: "label" | sort_natural -%}
+{%- assign hierarchicalCollections = site.collections | where: "taggable", "true" | where: "hierarchical", "true" | map: "label" -%}
+{%- assign searchableCollections = site.collections | where: "zoeken", "true" | map: "label" -%}
+{%- for pointerCollection in searchableCollections -%}
+{%- assign source = site.documents | where: "collection", pointerCollection -%}
+{%- for pointer in source -%}
+{%- if pointer.title -%}
+{%- assign selfname = pointer.title | downcase | strip -%}
+{%- assign selftheme = pointerCollection | downcase -%}
+{%- assign count = 0 -%}
+{%- assign themesource = site.documents | where: "collection", selftheme -%}
+{%- for doc in themesource -%}
+{%- assign cleanstring = doc.title | downcase | strip -%}
+{%- if cleanstring == selfname -%}
+{%- assign count = count | plus: 1 -%}
+{%- endif -%}
+{%- endfor -%}
+{%- if count != 1 -%}
+{%- assign errorMessage = site.data.janitor.multiple_occurrences | normalize_whitespace | strip -%}
+{%- assign errorInstance = "" | split: "," | push: pointer.url | push: pointerCollection | push: pointer.title | push: "" | push: "" | push: errorMessage -%}
+{%- assign errorCollection = errorCollection | push: errorInstance -%}
+{%- endif -%}
+{%- assign array = pointer[selftheme] | split: "," -%}
+{%- for string in array -%}
+{%- assign cleanstring = string | downcase | strip -%}
+{%- if cleanstring == selfname -%}
+{%- assign errorMessage = site.data.janitor.self_referring | normalize_whitespace | strip -%}
+{%- assign errorInstance = "" | split: "," | push: pointer.url | push: pointerCollection | push: pointer.title | push: pointerCollection | push: pointer.title | push: errorMessage -%}
+{%- assign errorCollection = errorCollection | push: errorInstance -%}
+{%- endif -%}
+{%- endfor -%}
+{%- for taggableCollection in taggableCollections -%}
+{%- unless hierarchicalCollections contains taggableCollection -%}
+{%- assign themedocs = site.documents | where: "collection", taggableCollection -%}
+{%- assign themetags = "" -%}
+{%- assign array = pointer[taggableCollection] | normalize_whitespace | replace: ", ", "," | split: "," -%}
+{%- if array != empty -%}
+{%- assign sortedArray = array | sort_natural -%}
+{%- assign arraySpan = sortedArray.size | minus: 2 -%}
+{%- for i in (0..arraySpan) -%}
+{%- assign j = i | plus: 1 -%}
+{%- assign iDowncase = sortedArray[i] | downcase | strip -%}
+{%- assign jDowncase = sortedArray[j] | downcase | strip -%}
+{%- if iDowncase == jDowncase -%}
+{%- assign errorMessage = site.data.janitor.tag_duplicates | normalize_whitespace | strip -%}
+{%- assign errorInstance = "" | split: "," | push: pointer.url | push: pointerCollection | push: pointer.title | push: pointerCollection | push: sortedArray[i] | push: errorMessage -%}
+{%- assign errorCollection = errorCollection | push: errorInstance -%}
+{%- endif -%}
+{%- endfor -%}
+{%- for string in array -%}
+{%- assign cleanstring = string | downcase | strip -%}
+{%- assign count = 0 -%}
+{%- for doc in themedocs -%}
+{%- assign cleantitle = doc.title | downcase | strip -%}
+{%- if cleanstring == cleantitle -%}
+{%- assign count = count | plus: 1 -%}
+{%- endif -%}
+{%- endfor -%}
+{%- if count != 1 -%}
+{%- assign errorMessage = site.data.janitor.cul_de_sac | normalize_whitespace | strip -%}
+{%- assign errorInstance = "" | split: "," | push: pointer.url | push: pointerCollection | push: pointer.title | push: taggableCollection | push: string | push: errorMessage -%}
+{%- assign errorCollection = errorCollection | push: errorInstance -%}
+{%- endif -%}
+{%- endfor -%}
+{%- endif -%}
+{%- endunless -%}
+{%- endfor -%}
+{%- endif -%}
+{%- endfor -%}
+{%- endfor -%}
+<div>
+{% assign listintrotext = site.snippets | where: "title", "janitor-consistency-intro" | first | strip %}
+{{ listintrotext }}
+</div>
+<div>
+{%- if errorCollection.size > 0 -%}
+{%- assign inside = site.data.janitor.inside_collection | normalize_whitespace | strip -%}
+{%- assign refersto = site.data.janitor.refers_to | normalize_whitespace | strip -%}
+<dl>
+{%- for errorInstance in errorCollection -%}
+{%- assign message = errorInstance[5] -%}
+{%- include cleansentences.liquid sentences=message -%}
+<dt class="lijstsectie">
+<a href="{{- site.baseurl -}}{{- errorInstance[0] -}}">
+{{- sentences -}}
+</a>
+</dt>
+<dd class="lijstitem-omschrijving">
+"{{ errorInstance[2] }}" {{ inside }} {{ errorInstance[1] -}}
+{%- if errorInstance[4].size > 0 %}
+{{ refersto }} "{{ errorInstance[4] }}" {{ inside }} {{ errorInstance[3] -}}
+{%- endif -%}
+.
+</dd>
+{%- endfor -%}
+</dl>
+{%- else -%}
+<p>
+{{ site.data.janitor.none_found | normalize_whitespace | strip }}
+</p>
+{%- endif -%}
+</div>
+<div>
+{% assign listoutrotext = site.snippets | where: "title", "janitor-consistency-outro" | first | strip %}
+{{ listoutrotext }}
+</div>
+<div>
+{% assign outrotext = site.snippets | where: "title", "janitor-outro" | first | strip %}
+{{ outrotext }}
+</div>

@@ -1,0 +1,285 @@
+baseurl: /n705ld
+layouts_dir: /system/_layouts
+data_dir: /system/_data
+includes_dir: /system/_includes
+sass:
+    sass_dir: /system/_sass
+assets_dir: /system/assets
+encoding: UTF-8
+future: true
+gfm_quirks: paragraph_end, no_auto_typographic
+ignore_theme_config: true
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+permalink: /:collection/:path/:title
+timezone: Europe/Amsterdam
+plugins:
+ - jekyll-sitemap
+ - jekyll-seo-tag
+kramdown:
+    auto_ids: true
+    syntax_highlighter_opts:
+        disable: true
+    smart_quotes: apos,apos,quot,quot
+    input: GFM
+    hard_wrap: false
+    footnote_nr: 1
+    footnote_prefix:
+    toc_levels: [1, 2, 3, 4, 5, 6]
+    header_offset: 0
+    show_warnings: false
+compress_html:
+    clippings: []
+    comments: all
+    endings: []
+    ignore:
+        envs: []
+    blanklines: false
+    profile: false
+    startings: []
+publisher:
+    name: Kadaster
+    url: https://www.kadaster.nl/bag
+    email: bag@kadaster.nl
+    phone: (088) 183 34 00
+title: "Basisregistratie Adressen en Gebouwen"
+tagline: "Normatieve catalogus en informatieve praktijkhandleiding van de BAG"
+description: "Systeembeschrijving en praktische handleiding bij de Catalogus BAG 2018"
+production_baseurl: /praktijkhandleiding
+baseurl-label: "Start"
+newsfeed-limit: 25
+catalogus_bag_label: "Catalogus BAG 2018"
+catalogus_bag_url: "/catalogus"
+customfont:
+    regular:
+        file: auto-1-regular.woff
+        format: woff
+    italic:
+        file: auto-1-italic.woff
+        format: woff
+    bold:
+        file: auto-1-bold.woff
+        format: woff
+    bolditalic:
+        file: auto-1-bold-italic.woff
+        format: woff
+    code:
+        file: DejaVuSansMono.ttf
+        format: truetype
+color-scheme: customized
+figure-scrolling: true
+show-date-is-missing: true
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      printonly: false
+      showSubarticles: false
+collections:
+    snippets:
+        output: false
+        zoeken: false
+        taggable: false
+        prescriptiveness: descriptive
+        referralHighlighting: false
+        datums: false
+        hierarchical: false
+        linkeddata: 
+            mainEntity: 
+                type: Thing
+                additionalType: http://bag.basisregistraties.overheid.nl/def/bag#BAG-object
+                id_prefix: http://bag.basisregistraties.overheid.nl/def/bag#
+    faq:
+        output: true
+        zoeken: true
+        taggable: false
+        prescriptiveness: descriptive
+        referralHighlighting: false
+        datums: false
+        hierarchical: false
+        linkeddata: 
+            mainEntity: 
+                type: Thing
+                additionalType: http://bag.basisregistraties.overheid.nl/def/bag#BAG-object
+                id_prefix: http://bag.basisregistraties.overheid.nl/def/bag#
+            type: TechArticle
+            tag_qualifier: assesses
+    attributen:
+        output: true
+        zoeken: true
+        taggable: true
+        prescriptiveness: descriptive
+        referralHighlighting: true
+        datums: false
+        hierarchical: false
+        linkeddata: 
+            mainEntity: 
+                type: Thing
+                additionalType: http://bag.basisregistraties.overheid.nl/def/bag#BAG-object
+                id_prefix: http://bag.basisregistraties.overheid.nl/def/bag#
+            type: TechArticle
+            tag_qualifier: hasPart
+    beslisboomvragen:
+        output: true
+        zoeken: true
+        taggable: true
+        prescriptiveness: descriptive
+        referralHighlighting: false
+        datums: false
+        origin: objecttypen
+        hierarchical: false
+        linkeddata: 
+            mainEntity: 
+                type: Thing
+                additionalType: http://bag.basisregistraties.overheid.nl/def/bag#BAG-object
+                id_prefix: http://bag.basisregistraties.overheid.nl/def/bag#
+            type: disambiguatingDescription
+    modeldocumenten:
+        output: true
+        zoeken: true
+        taggable: false
+        prescriptiveness: descriptive
+        referralHighlighting: false
+        datums: false
+        hierarchical: false
+        linkeddata: 
+            mainEntity: 
+                type: Thing
+                additionalType: http://bag.basisregistraties.overheid.nl/def/bag#BAG-object
+                id_prefix: http://bag.basisregistraties.overheid.nl/def/bag#
+            type: CreativeWork
+    gebeurtenissen:
+        output: true
+        zoeken: true
+        taggable: true
+        prescriptiveness: descriptive
+        referralHighlighting: false
+        datums: false
+        hierarchical: false
+        linkeddata: 
+            mainEntity: 
+                type: Thing
+                additionalType: http://bag.basisregistraties.overheid.nl/def/bag#BAG-object
+                id_prefix: http://bag.basisregistraties.overheid.nl/def/bag#
+            type: Action
+            tag_qualifier: instrument
+    objecttypen:
+        output: true
+        zoeken: true
+        taggable: true
+        prescriptiveness: descriptive
+        referralHighlighting: true
+        datums: false
+        hierarchical: false
+        linkeddata: 
+            mainEntity: 
+                type: Thing
+                additionalType: http://bag.basisregistraties.overheid.nl/def/bag#BAG-object
+                id_prefix: http://bag.basisregistraties.overheid.nl/def/bag#
+            type: Class
+            tag_qualifier: domainIncludes
+    beleidskaders:
+        output: true
+        zoeken: true
+        taggable: true
+        prescriptiveness: descriptive
+        referralHighlighting: false
+        datums: true
+        hierarchical: false
+        linkeddata: 
+            mainEntity: 
+                type: Thing
+                additionalType: http://bag.basisregistraties.overheid.nl/def/bag#BAG-object
+                id_prefix: http://bag.basisregistraties.overheid.nl/def/bag#
+            type: Legislation
+            tag_qualifier: isBasedOn
+    relaties:
+        output: true
+        zoeken: true
+        taggable: true
+        prescriptiveness: descriptive
+        referralHighlighting: false
+        datums: false
+        hierarchical: false
+        linkeddata: 
+            mainEntity: 
+                type: Thing
+                additionalType: http://bag.basisregistraties.overheid.nl/def/bag#BAG-object
+                id_prefix: http://bag.basisregistraties.overheid.nl/def/bag#
+            type: TechArticle
+            tag_qualifier: isRelatedTo
+    trefwoorden:
+        output: true
+        zoeken: true
+        taggable: true
+        prescriptiveness: descriptive
+        referralHighlighting: true
+        datums: false
+        hierarchical: false
+        linkeddata: 
+            mainEntity: 
+                type: Thing
+                additionalType: http://bag.basisregistraties.overheid.nl/def/bag#BAG-object
+                id_prefix: http://bag.basisregistraties.overheid.nl/def/bag#
+            type: TechArticle
+            tag_qualifier: keywords
+    kwaliteitsthemas:
+        output: true
+        zoeken: true
+        taggable: false
+        prescriptiveness: descriptive
+        referralHighlighting: false
+        datums: false
+        alias: Kwaliteitsdashboard
+        hierarchical: false
+        linkeddata: 
+            mainEntity: 
+                type: Thing
+                additionalType: http://bag.basisregistraties.overheid.nl/def/bag#BAG-object
+                id_prefix: http://bag.basisregistraties.overheid.nl/def/bag#
+            type: CreativeWork
+    kwaliteitsrapporten:
+        output: true
+        zoeken: true
+        taggable: false
+        prescriptiveness: descriptive
+        referralHighlighting: false
+        datums: false
+        origin: kwaliteitsthemas
+        hierarchical: false
+        linkeddata: 
+            mainEntity: 
+                type: Thing
+                additionalType: http://bag.basisregistraties.overheid.nl/def/bag#BAG-object
+                id_prefix: http://bag.basisregistraties.overheid.nl/def/bag#
+            type: CreativeWork
+    catalogus:
+        output: true
+        zoeken: true
+        taggable: true
+        prescriptiveness: prescriptive
+        referralHighlighting: false
+        datums: true
+        hierarchical: false
+        linkeddata: 
+            mainEntity: 
+                type: Thing
+                additionalType: http://bag.basisregistraties.overheid.nl/def/bag#BAG-object
+                id_prefix: http://bag.basisregistraties.overheid.nl/def/bag#
+            type: DataCatalog
+            tag_qualifier: includedInDataCatalog
+    begrippen:
+        output: true
+        zoeken: true
+        taggable: true
+        prescriptiveness: descriptive
+        referralHighlighting: false
+        datums: false
+        hierarchical: true
+        linkeddata: 
+            mainEntity: 
+                type: Concept
+                additionalType: http://bag.basisregistraties.overheid.nl/def/bag#BAG-object
+                id_prefix: http://bag.basisregistraties.overheid.nl/def/bag#
+            type: TechArticle
+            tag_qualifier: keywords

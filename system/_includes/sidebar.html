@@ -1,0 +1,40 @@
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox"{%- if site.data.sidebar.open -%} checked{%- endif -%}>
+<div class="sidebar" id="sidebar">
+<div class="sidebar-item">
+<a href="{{- site.baseurl -}}" title="{{- site.data.sidebar.goto }} {% if site.baseurl-label.size > 0 %}{{ site.baseurl-label | downcase | strip_html | strip }}{% else %}{{ site.data.sidebar.homepage }}{% endif -%}"><div class="imagelink"><img src="{{- site.baseurl -}}{{- site.assets_dir -}}/img/open-graph.png" alt="{{- site.data.sidebar.logo.title.abbreviated | strip_html | normalize_whitespace | strip }}{{ site.catalogus_bag_label | strip_html | normalize_whitespace | strip -}}"><span>{{- site.data.sidebar.goto }} {% if site.baseurl-label.size > 0 %}{{ site.baseurl-label | downcase | strip_html | strip }}{% else %}{{ site.data.sidebar.homepage }}{% endif -%}</span></div></a>
+<p>{%- unless site.baseurl == site.production_baseurl -%}{{- site.data.testing.prepend | strip_html -}}{%- endunless %}{% assign first = site.description | slice: 0 %}{% assign body = site.description | remove_first: first %}{{ first | capitalize | append: body -}}</p>
+</div>
+<nav class="sidebar-nav">
+{%- if page.toc or page.subpages -%}
+{%- if page.toc -%}
+{%- assign tocEntries = page.toc -%}
+{% else %}
+{%- assign tocEntries = page.subpages -%}
+{%- endif -%}
+<p class="sidebar-nav-toc-title">{{- site.data.sidebar.toc-intro -}}</p>
+<div class="sidebar-nav-toc">
+{%- for node in tocEntries -%}
+{%- assign node_parts = node | split: "-" -%}
+<a class="sidebar-nav-toc-item{%- if page.url == node.url -%} active{%- endif -%}" href="#{%- for node_part in node_parts -%}{{- node_part | replace: ".", "" | slugify: 'default' -}}{%- unless forloop.last -%}--{%- endunless -%}{%- endfor -%}">{{- node -}}</a>
+{%- endfor -%}
+</div>
+{%- endif -%}
+{%- assign pages_list = site.pages | where: "siteindex", "true" | sort:"sortkey" -%}
+{%- for node in pages_list -%}
+{%- if node.title.size > 0 -%}
+<a class="sidebar-nav-item{%- if page.url == node.url %} active{%- endif -%}" href="{{- site.baseurl -}}{{- node.url -}}">{{- node.title -}}</a>
+{%- endif -%}
+{%- endfor -%}
+{%- for node in site.data.sidebar.links -%}
+{%- if node.label.size > 0 and node.url.size > 0 -%}
+<a class="sidebar-nav-item" href="{{- node.url -}}" target="_blank" rel="noreferrer">{{- node.label -}}</a>
+{%- endif -%}
+{%- endfor -%}
+</nav>
+<div class="sidebar-item">
+{%- if site.data.sidebar.credits and page.editor -%}
+<p class="sidebar-editor"><span class="sidebar-editor-title">{{- site.data.sidebar.editor -}}</span><br/>{{ page.editor | strip_html | strip -}}</p>
+{%- endif -%}
+<p><img src="{{- site.baseurl -}}{{- site.assets_dir -}}{{- site.data.license.logo | strip -}}" alt="{{- site.data.license.title.abbreviated | strip_html | normalize_whitespace | strip -}}" title="{{- site.data.license.title.abbreviated | strip_html | normalize_whitespace | strip -}}"></p>
+</div>
+</div>

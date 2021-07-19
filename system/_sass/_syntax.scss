@@ -1,0 +1,4 @@
+code,pre {font-family: CustomCodeFont, CustomFont, "DejaVu Sans Mono", Verdana, Arial, monospace}
+code {color: $code-color;font-size: 85%;background-color: $code-background;border-radius: 3px;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-style: solid;border-width: 1px;border-color: $code-border;word-break: break-word;padding-top: 0.1rem;padding-bottom: 0.1rem;padding-left: 0.25rem;padding-right: calc( 0.25rem - 0px);letter-spacing: 0px}
+pre {display: block;margin-top: 0;margin-bottom: 1rem;padding: 0;white-space: pre-wrap;word-break: break-all;word-wrap: break-word;background-color: $code-background}
+pre code {word-break: break-all;display: block}

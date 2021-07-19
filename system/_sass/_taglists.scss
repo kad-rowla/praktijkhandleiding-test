@@ -1,0 +1,11 @@
+.taglistconceptclassifier,.taglistprescriptiveness,.taglisttype {font-size: 1rem}
+.taglistconceptclassifier,.taglistprescriptiveness {padding-left: .5rem;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";filter: alpha(opacity=60);opacity: 0.6}
+.taglist {list-style: none;margin: 0;overflow: hidden;padding: 0}
+.taglist li {float: left}
+.tagitem {background: #eee;border-radius: 3px 0px 0px 3px;color: #999;display: inline-block;height: 26px;line-height: 26px;padding-top: 0px;padding-right: 20px;padding-bottom: 0px;padding-left: 23px;position: relative;margin-top: 0px;margin-right: 10px;margin-bottom: 10px;margin-left: 0px;text-decoration: none;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: calc(var(--container-width) - 1rem - 20px);-webkit-transition: color 0.2s}
+.tagitem::before {background: #fff;border-radius: 10px;content: '';height: 6px;left: 10px;position: absolute;width: 6px;top: 10px}
+.prescriptive .tagitem::before {background: #d52b1e}
+.descriptive .tagitem::before {background: var(--klassiekgroen)}
+.tagitem::after {background: #fff;border-bottom: 13px solid transparent;border-left: 10px solid #eee;border-top: 13px solid transparent;content: '';position: absolute;right: 0px;top: 0px}
+.tagitem:hover,.theme-base-customized .container .tagitem:hover {color: white;text-decoration: none;background-color: #70A426}
+.tagitem:hover::after {border-left-color: #70A426}

@@ -1,0 +1,103 @@
+{%- assign linkArray = "" | split: "," -%}
+{%- if include.docArray.size > 0 -%}
+{%- assign docArray = include.docArray -%}
+{%- else -%}
+{%- assign docArray = "" | split: "," -%}
+{%- endif -%}
+{%- assign self = "" | split: "," | push: page -%}
+{%- assign docArray = docArray | push: self -%}
+{%- assign pageTitle = page.title | downcase | normalize_whitespace | strip -%}
+{%- assign selfNames = "" | split: "," | push: pageTitle -%}
+{%- for doc in docArray -%}
+{%- assign selfName = doc[0].title | downcase | normalize_whitespace | strip -%}
+{%- assign selfNames = selfNames | push: selfName -%}
+{%- endfor -%}
+{%- assign selfCollection = page.collection | downcase -%}
+{%- assign linkArrayArray = "" | split: "," -%}
+{%- assign taggableCollections = site.collections | where: "taggable", "true" | map: "label" | sort_natural -%}
+{%- for taggableCollection in taggableCollections -%}
+{%- assign taggableCollectionVariables = site.collections | where: "label", taggableCollection | first -%}
+{%- if taggableCollectionVariables.hierarchical and taggableCollection == selfCollection-%}
+{%- assign hierarchyRange = site.data.linkeddata.hierarchy -%}
+{%- else -%}
+{%- assign hierarchyRange = site.data.linkeddata.parity -%}
+{%- endif -%}
+{%- for hierarchyProbe in hierarchyRange -%}
+{%- assign tagTray = "" | split: "," -%}
+{%- assign tagPointerOutbound = hierarchyProbe[1]["tag"].outbound -%}
+{%- assign tagPointerInbound = hierarchyProbe[1]["tag"].inbound -%}
+{%- for doc in docArray -%}
+{%- if tagPointerOutbound == site.data.linkeddata.parity.flag or tagPointerOutbound.size == 0 -%}
+{%- assign temp = doc[0][taggableCollection] -%}
+{%- else -%}
+{%- assign temp = doc[0][taggableCollection][tagPointerOutbound] -%}
+{%- endif -%}
+{%- assign temp = temp | downcase | replace: ",", ", " | normalize_whitespace | strip | split: ", " -%}
+{%- if temp.size > 0 -%}
+{%- assign tagTray = tagTray | push: temp -%}
+{%- endif -%}
+{%- endfor -%}
+{%- if taggableCollection == selfCollection and page.layout == "book" and tagPointerOutbound != site.data.linkeddata.hierarchy.parent.tag.outbound -%}
+{%- if taggableCollectionVariables.hierarchical == false or tagPointerOutbound == site.data.linkeddata.hierarchy.child.tag.outbound -%}
+{%- for subpage in page.subpages -%}
+{%- assign subpageTitle = subpage | downcase | normalize_whitespace | strip -%}
+{%- assign tagTray = tagTray | push: subpageTitle -%}
+{%- endfor -%}
+{%- endif -%}
+{%- endif -%}
+{%- assign pagesInPointedCollection = site.documents | where: "collection", taggableCollection | where: site.data.print.flag, "false" -%}
+{%- for pageInPointedCollection in pagesInPointedCollection -%}
+{%- if tagPointerInbound == site.data.linkeddata.parity.flag or tagPointerInbound.size == 0 -%}
+{%- assign item = pageInPointedCollection[selfCollection] -%}
+{%- else -%}
+{%- assign item = pageInPointedCollection[selfCollection][tagPointerInbound] -%}
+{%- endif -%}
+{%- assign item = item | downcase | replace: ",", ", " | normalize_whitespace | strip | split: ", " -%}
+{%- for selfName in selfNames -%}
+{%- if item contains selfName -%}
+{%- assign itemTitle = pageInPointedCollection.title | downcase | normalize_whitespace | strip -%}
+{%- assign tagTray = tagTray | push: itemTitle -%}
+{%- endif -%}
+{%- endfor -%}
+{%- endfor -%}
+{%- if tagTray.size > 0 -%}
+{%- assign tagTray = tagTray | sort_natural | uniq -%}
+{%- assign collectionPointer = taggableCollection | downcase -%}
+{%- if tagTray.size > 0 -%}
+{%- unless tagTray.size == 1 and collectionPointer == selfCollection and selfNames contains tagTray.first %}
+{%- assign linkArray = "" | split: "," | push: taggableCollection | push: taggableCollectionVariables.prescriptiveness | push: taggableCollectionVariables.referralHighlighting | push: taggableCollectionVariables.linkeddata.tag_qualifier -%}
+{%- assign linkItems = "" | split: "," -%}
+{%- assign tagsFound = 0 -%}
+{%- assign sortedTaggableCollection = site[taggableCollection] -%}
+{%- if sortedTaggableCollection.first.layout == "book" -%}
+{%- assign sortOrder = "sortkey" -%}
+{%- else -%}
+{%- assign sortOrder = "title" -%}
+{%- endif -%}
+{%- assign sortedTaggableCollection = sortedTaggableCollection | sort: sortOrder -%}
+{%- for probe in sortedTaggableCollection -%}
+{%- assign probeTitle = probe.title | downcase | normalize_whitespace | strip -%}
+{%- unless selfCollection == collectionPointer and pageTitle == probeTitle -%}
+{%- unless selfNames contains probeTitle and layout.system.showChildTags == false -%}
+{%- if tagTray contains probeTitle -%}
+{%- assign linkItemUrl = probe.url | prepend: site.baseurl | prepend: site.url -%}
+{%- assign linkItem = "" | split: "," | push: probeTitle | push: linkItemUrl -%}
+{%- assign linkItems = linkItems | push: linkItem -%}
+{%- assign tagsFound = tagsFound | plus: 1 -%}
+{%- unless tagsFound < tagTray.size -%}
+{%- break -%}
+{%- endunless -%}
+{%- endif -%}
+{%- endunless -%}
+{%- endunless -%}
+{%- endfor %}
+{%- assign linkArray = linkArray | push: linkItems | push: hierarchyProbe[1]["label_qualifier"] | push: hierarchyProbe[1]["skos_qualifier"] -%}
+{%- endunless -%}
+{%- endif -%}
+{%- endif -%}
+{%- if linkArray.size > 0 -%}
+{%- assign linkArrayArray = linkArrayArray | push: linkArray -%}
+{%- assign linkArray = "" | split: "," -%}
+{%- endif -%}
+{%- endfor %}
+{%- endfor %}

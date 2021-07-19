@@ -1,0 +1,62 @@
+{%- comment -%}
+    <!-- Insert Linked Data proterties into head.html. -->
+{%- endcomment -%}
+{%- comment -%}
+    <!-- Some Linked Data properties in _config.yml, such as tag_qualifier, may be left blank if `taggable: false` or `output: false` for a collection. -->
+{%- endcomment -%}
+
+
+{%- include findlinks.html -%}
+{%- comment -%}
+    <!-- Each linkArray member of the linkArrayArray array is also an array: -->
+    <!-- linkArray[0]: collectionLabel; linkArray[1]: prescriptiveness; linkArray[2]: referralHighlighting; linkArray[3]: linkeddata.tag_qualifier; linkArray[4]: linkItems; linkArray[5]: collectionLabelSuffix; linkArray[6]: collectionViewQualifier -->
+    <!-- And each of the 1..n linkItem members of the linkItems array is also an array: -->
+    <!-- linkItem[0]: linkLabel; linkItem[1]: linkUrl -->
+{%- endcomment -%}
+{%- comment -%}
+    <!-- First retrieve the collection settings. -->
+{%- endcomment -%}
+{%- assign thisCollection = site.collections | where: "label", page.collection | first -%}
+{%- comment -%}
+    <!-- Insert the linked data content. -->
+{%- endcomment -%}
+<script type="{{- site.data.linkeddata.script.type -}}">
+    {
+        "@context": {
+            "@version":"{{- site.data.linkeddata.context.version -}}",
+            "@vocab":"{{- site.data.linkeddata.context.vocabulary -}}"
+        },
+        "@type":"{{- thisCollection.linkeddata.type -}}",
+        "url":"{{- site.url -}}{{- site.baseurl -}}{{- page.url -}}",
+        "mainEntity": {
+            "@id":"{{- thisCollection.linkeddata.mainEntity.id_prefix -}}{{- page.title -}}",
+            "@type":"{{- thisCollection.linkeddata.mainEntity.type -}}",
+            "additionalType":"{{- thisCollection.linkeddata.mainEntity.additionalType -}}",
+            "datePublished":"{{- page.date | date: '%Y-%m-%d' -}}",
+            "description":"{{- page.description -}}"
+        },
+        "homepage":"{{- site.url -}}{{- site.baseurl -}}{{- site.catalogus_bag_url -}}",
+        "legislationLegalForce":"{{- site.data.linkeddata.prescriptiveness[thisCollection.prescriptiveness] -}}",
+        "name":"{{- page.title -}}",
+        "subjectOf": {
+            "@id":"{{- site.data.linkeddata.subjectOf.id -}}",
+            "@type":"{{- site.data.linkeddata.subjectOf.type -}}",
+            "name":"{{- site.title -}}",
+            "description":"{{- site.tagline -}}",
+            "license":"{{- site.data.license.url -}}"
+        },
+        {%- for linkArray in linkArrayArray -%}
+            {%- assign temp = "" | split: "," -%}
+            {%- for link in linkArray[4] -%}
+                {%- assign temp = temp | push: link[1] -%}
+            {%- endfor %}
+            "{{- linkArray[3] -}}":{{- temp | jsonify -}},
+        {%- endfor %}
+        "dateModified":"{{- 'now' | date: '%Y-%m-%d %H:%M' -}}",
+        "publisher": {
+            "@type":"{{- site.data.linkeddata.publisher.type -}}",
+            "url":"{{- site.publisher.url -}}"
+        },
+        "license":"{{- site.data.license.url -}}"
+    }
+</script>

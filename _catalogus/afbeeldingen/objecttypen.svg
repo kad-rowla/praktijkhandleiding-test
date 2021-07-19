@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 350.17 194.17">
+
+    <defs>
+        <style>
+            .canvas {fill:#d9ebf7}
+            .objecttype-naam {fill:#fff;font-family:RijksoverheidSansText-Regular, RijksoverheidSansText, calibri, arial, sans-serif;font-size:9px}
+            .groep-accolade {fill:none;stroke:#000;stroke-width:0.5px}
+            .groep-naam {font-family:RijksoverheidSansText-Bold, RijksoverheidSansText, calibri, arial, sans-serif;font-size:9px;font-weight:700}
+        </style>
+        <rect id="objecttype-vlak" width="65.2" height="37.1" fill="#007bc7"/>
+    </defs>
+
+    <title>BAG-objecttypen</title>
+
+    <!-- ACHTERGROND -->
+    <rect class="canvas" width="100%" height="100%"/>
+
+    <!-- OBJECTTYPEN -->
+    <use xlink:href="#objecttype-vlak" x="24.31" y="52.53"/>
+    <text class="objecttype-naam" x="47.64" y="74.72">Pand</text>
+
+    <use xlink:href="#objecttype-vlak" x="114.46" y="52.53"/>
+    <text class="objecttype-naam" x="120.75" y="74.72">Verblijfsobject</text>
+
+    <use xlink:href="#objecttype-vlak" x="187.04" y="52.53"/>
+    <text class="objecttype-naam" x="197.77" y="74.72">Standplaats</text>
+
+    <use xlink:href="#objecttype-vlak" x="259.62" y="52.53"/>
+    <text class="objecttype-naam" x="275.75" y="74.72">Ligplaats</text>
+
+    <use xlink:href="#objecttype-vlak" x="114.46" y="136.15"/>
+    <text class="objecttype-naam" x="124.88" y="158.34">Woonplaats</text>
+
+    <use xlink:href="#objecttype-vlak" x="187.04" y="136.15"/>
+    <text class="objecttype-naam" x="201.4" y="152.94">Openbare</text>
+    <text class="objecttype-naam" x="207.33" y="163.74">ruimte</text>
+
+    <use xlink:href="#objecttype-vlak" x="259.62" y="136.15"/>
+    <text class="objecttype-naam" x="274.24" y="152.94">Nummer-</text>
+    <text class="objecttype-naam" x="271.53" y="163.74">aanduiding</text>
+
+    <!-- GROEPERING VAN OBJECTTYPEN -->
+    <path class="groep-accolade" d="M341.09,258.78V246.37h-78v12.41m39.14-12.41V235.24" transform="translate(-245 -201.28)"/>
+    <text class="groep-naam" x="36.18" y="27.12">Gebouwen</text>
+
+    <path class="groep-accolade" d="M576,258.78V246.37H353.25v12.41M465,246.37V235.24" transform="translate(-245 -201.28)"/>
+    <text class="groep-naam" x="175.13" y="27.12">Adresseerbare objecten</text>
+
+    <path class="groep-accolade" d="M576,342.4V330H353.25V342.4M465,330V318.86" transform="translate(-245 -201.28)"/>
+    <text class="groep-naam" x="202.71" y="110.74">Adressen</text>
+
+</svg>

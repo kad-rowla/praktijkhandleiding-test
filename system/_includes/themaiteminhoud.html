@@ -1,0 +1,14 @@
+{% include breadcrumbtrail.html %}
+{% include prescriptiveness.html currentCollection=page.collection %}
+{% assign collectie = site.collections | where: "label", page.collection | first %}
+{% if page.date and collectie.datums %}
+<div class="paginadatum">
+{% include nldatum.html datum=page.date %}
+{{ nldatum | capitalize }}
+</div>
+{% endif %}
+{% include generictext.html generictext="-item-top" %}
+
+<div>
+{{ content }}
+</div>

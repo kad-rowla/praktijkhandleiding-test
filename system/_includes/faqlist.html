@@ -1,0 +1,36 @@
+{%- assign collection = include.verzameling | sort: "title" -%}
+{%- assign theme = include.thema -%}
+<div>
+{% if theme.size > 0 and collection.size > 0 %}
+{% include generictext.html generictext="-faq-intro" %}
+{% endif %}
+{%- assign emptyflag = true -%}
+{%- assign name = page.title | downcase | strip -%}
+<ul>
+{%- for artikel in collection -%}
+{%- assign itemlist = artikel[theme] | split: ',' -%}
+{%- for item in itemlist -%}
+{%- assign itemtext = item | downcase | strip -%}
+{%- if itemtext == name -%}
+{%- assign emptyflag = false -%}
+<li><a href="{{ site.baseurl }}{{ artikel.url }}" class="lijstitem-titel">
+{{- artikel.title -}}
+</a>
+{%- if artikel.date -%}
+<span class="itemdetails">({{- artikel.date | date: "%Y-%m-%d" -}})</span>
+{%- elsif site.show-date-is-missing -%}
+<span class="itemdetails">
+({{- site.data.dates.none | strip_html | normalize_whitespace | strip -}})
+</span>
+{%- endif -%}
+</li>
+{%- endif -%}
+{%- endfor -%}
+{%- endfor -%}
+{%- if emptyflag -%}
+<li>
+{{- site.data.lists.empty | strip_html | normalize_whitespace | strip | markdownify -}}
+</li>
+{%- endif -%}
+</ul>
+</div>

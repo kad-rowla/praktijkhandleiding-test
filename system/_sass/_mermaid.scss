@@ -1,0 +1,47 @@
+.language-mermaid * {font-family: CustomFont!important;font-size: .8rem!important}
+.language-mermaid .node circle,.language-mermaid .node ellipse,.language-mermaid .node polygon,.language-mermaid .node rect {stroke: var(--kobalt);fill: var(--klassiekgroen);stroke-width: 1px}
+.language-mermaid .label * {text-align: center;color: #d8d8d8}
+.language-mermaid .nodes .clickable .label * {color: var(--wit)}
+.language-mermaid .edgePath path {stroke: var(--krachtiggroen)!important;fill: var(--krachtiggroen);stroke-width: 1.5px}
+.language-mermaid .edgeLabel {background-color: var(--wit);color: var(--kobalt)!important}
+.language-mermaid .clusters rect {fill: var(--krachtiggroen);fill-opacity: .1;stroke: var(--klassiekgroen)!important;stroke-width: 1px!important}
+.language-mermaid .clusters .label * {color: var(--klassiekgroen)}
+.language-mermaid .actor {stroke: var(--kobalt);fill: var(--klassiekgroen);stroke-width: 1px}
+.language-mermaid text.actor * {fill: var(--wit)!important;alignment-baseline: central;text-anchor: middle;x: 50%;y: 50%;stroke: none}
+.language-mermaid .actor-line {stroke: var(--klassiekgroen);stroke-width: 1px}
+.language-mermaid .messageLine0,.language-mermaid .messageLine1 {stroke-width: 3px;stroke: var(--krachtiggroen);fill: none!important}
+.language-mermaid .messageLine1 {stroke-dasharray: 3,3!important}
+.language-mermaid .messageLine0 {marker-end: "url(#arrowhead)"}
+.language-mermaid #arrowhead {fill: var(--krachtiggroen)}
+.language-mermaid .messageText {fill: var(--kobalt);stroke: none}
+.language-mermaid .labelBox {stroke: var(--krachtiggeel);fill: $code-background}
+.language-mermaid .labelText * {fill: var(--innovatiefblauw);stroke: none}
+.language-mermaid .loopText * {fill: var(--innovatiefblauw);stroke: none}
+.language-mermaid .loopLine {stroke-width: 2;marker-end: "url(#arrowhead)";stroke: var(--krachtiggeel)}
+.language-mermaid .note {stroke: var(--krachtiggeel);fill: $code-background}
+.language-mermaid .noteText * {fill: var(--krachtiggroen);stroke: none}
+$gantt-done-fill-color: #cccccc;$gantt-done-stroke-color: #888888;$gantt-done-text-color: $gantt-done-stroke-color;$gantt-critical-color: red;.language-mermaid .titleText {fill: var(--krachtiggroen);font-size: 1rem!important;text-anchor:middle;text-decoration: underline}
+.language-mermaid .grid .tick * {stroke: var(--krachtiggroen);stroke-dasharray: 3,3;fill: var(--krachtiggroen);shape-rendering: crispEdges}
+.language-mermaid .grid .tick text {opacity: .75;font-size: .6rem!important;stroke: none}
+.language-mermaid .grid path {stroke-width: 0}
+.language-mermaid .section,.language-mermaid .section0,.language-mermaid .section1,.language-mermaid .section2,.language-mermaid .section3 {fill: var(--krachtiggroen);fill-opacity: .02}
+.language-mermaid .section1,.language-mermaid .section3 {fill-opacity: .1}
+.language-mermaid .sectionTitle {text-anchor: start;text-shadow: 0px 0px 11px var(--krachtiggeel);font-size: 1rem}
+.language-mermaid .sectionTitle0,.language-mermaid .sectionTitle1,.language-mermaid .sectionTitle2,.language-mermaid .sectionTitle3 {fill: var(--krachtiggroen)}
+.language-mermaid .today {fill: none;stroke: var(--innovatiefblauw);stroke-width: 2px;stroke-dasharray: 9,8}
+.language-mermaid .task {stroke: var(--kobalt);fill: var(--klassiekgroen);stroke-width: 2px}
+.language-mermaid .task0,.language-mermaid .task1,.language-mermaid .task2,.language-mermaid .task3 {}
+.language-mermaid .done0,.language-mermaid .done1,.language-mermaid .done2,.language-mermaid .done3 {stroke: $gantt-done-stroke-color;fill: $gantt-done-fill-color;stroke-width: 2}
+.language-mermaid .active0,.language-mermaid .active1,.language-mermaid .active2,.language-mermaid .active3 {fill: var(--innovatiefblauw)}
+.language-mermaid .crit0,.language-mermaid .crit1,.language-mermaid .crit2,.language-mermaid .crit3,.language-mermaid .activeCrit0,.language-mermaid .activeCrit1,.language-mermaid .activeCrit2,.language-mermaid .activeCrit3,.language-mermaid .doneCrit0,.language-mermaid .doneCrit1,.language-mermaid .doneCrit2,.language-mermaid .doneCrit3 {stroke: $gantt-critical-color;stroke-width: 2}
+.language-mermaid .doneCrit0,.language-mermaid .doneCrit1,.language-mermaid .doneCrit2,.language-mermaid .doneCrit3 {fill: $gantt-done-fill-color;shape-rendering: crispEdges}
+.language-mermaid .activeCrit0,.language-mermaid .activeCrit1,.language-mermaid .activeCrit2,.language-mermaid .activeCrit3 {fill: $gantt-critical-color}
+.language-mermaid .taskText,.language-mermaid .taskText0,.language-mermaid .taskText1,.language-mermaid .taskText2,.language-mermaid .taskText3 {fill: var(--wit);font-size: .7rem!important;text-anchor: middle}
+.language-mermaid .taskTextOutsideRight,.language-mermaid .taskTextOutsideLeft {fill: var(--kobalt);font-size: .7rem!important}
+.language-mermaid .taskTextOutsideRight {text-anchor: start}
+.language-mermaid .taskTextOutsideLeft {text-anchor: end}
+.language-mermaid .taskTextOutside0,.language-mermaid .taskTextOutside1,.language-mermaid .taskTextOutside2,.language-mermaid .taskTextOutside3 {}
+.language-mermaid .activeCritText0,.language-mermaid .activeCritText1,.language-mermaid .activeCritText2,.language-mermaid .activeCritText3 {fill: var(--wit)!important}
+.language-mermaid .doneCritText0,.language-mermaid .doneCritText1,.language-mermaid .doneCritText2,.language-mermaid .doneCritText3 {fill: $gantt-done-text-color}
+.language-mermaid .doneText0,.language-mermaid .doneText1,.language-mermaid .doneText2,.language-mermaid .doneText3 {fill: $gantt-done-text-color}
+.language-mermaid .activeText0,.language-mermaid .activeText1,.language-mermaid .activeText2,.language-mermaid .activeText3 {fill: var(--wit)!important}

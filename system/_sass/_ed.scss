@@ -1,0 +1,134 @@
+* {-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box}
+html,body {margin: 0;padding: 0;overflow-x: hidden}
+html {font-family: $main-font;font-size: 16px;line-height: 1.5}
+@media (min-width: 38em) {html {font-size: $regular-font-size}}
+body {color: $text-color;background-color: var(--wit);-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%}
+.content {margin-bottom: 4rem}
+.wrap {position: relative;width: 100%}
+:root{--container-width:38rem}
+.container {max-width: var(--container-width);padding-left:  1rem;padding-right: 1rem;margin-left:  auto;margin-right: auto}
+@media (min-width: 38em) {:root{--container-width:32rem}
+.container {max-width: 32rem}}
+@media (min-width: 56em) {:root{--container-width:38rem}
+.container {max-width: var(--container-width)}}
+a,.text-title a {color: $link-color;text-decoration: underline}
+a:hover,a:focus {text-decoration: underline}
+h1, h2, h3, h4, h5, h6 {font-family: $heading-font;margin-bottom: .5rem;font-weight: 300;color: $heading-color;letter-spacing: -.025rem;line-height: 1.25;text-rendering: optimizeLegibility}
+h1 {font-size: 1.4rem}
+h1.text-title {font-size: 1.4rem}
+h2 {margin-top: 1rem;font-size: 1.2rem}
+h3, h4, h5 {font-size: 1rem}
+h3 {margin-top: 1.5rem}
+h4, h5, h6 {margin-top: 1rem}
+p {margin-top: 0;margin-bottom: 1rem}
+ul {list-style: circle}
+ul, ol {margin-top: 0;margin-bottom: 1rem}
+hr {margin-top: 60px;position: relative;margin: 1.5rem 0;border: 0;border-top: 1px solid #eee;border-bottom: 1px solid var(--wit)}
+mark {color: var(--wit);background-color: var(--krachtiggroen);padding: 3px;border-radius: 3px}
+blockquote {padding: 0rem 1.5rem 0rem 2rem;margin: 0 0 20px 0;color: $text-color;border-left: none;font-style: italic}
+blockquote p:last-child {margin-bottom: 0}
+@media (min-width: 30em) {blockquote {padding-right: 5rem;padding-left: 1.25rem}}
+li.attribution {text-align: right;list-style: none;padding: 0rem 1.5rem 0rem 2rem;margin: 0 0 20px 0;color: $text-color}
+img {display: block;max-width: 100%;opacity: 1;margin-top: 0rem;margin-bottom: 0rem;margin-left: 0rem;margin-right: 0rem;border-radius: 5px}
+table {margin-bottom: 1rem;width: 100%;border: 1px solid #e5e5e5;border-collapse: collapse}
+td,th {padding: .25rem .5rem;border: 1px solid #e5e5e5}
+tbody tr:nth-child(odd) td,tbody tr:nth-child(odd) th {background-color: #f9f9f9}
+.masthead {margin-bottom: 3rem;text-align: center;padding-top: 26px;padding-bottom: 1rem;border-bottom: 1px solid #eee}
+.masthead-title {font-family: $main-font;font-size: 1.8rem;margin-top: 2px;margin-bottom: 0;color: #505050;line-height: .777em}
+.masthead-title a {color: $link-color}
+.masthead-title small {font-size: .88rem;font-weight: 300;color: $text-color;letter-spacing: .05rem;font-family: $heading-font}
+@media (max-width: 48em) {.masthead-title {margin-left: 15%;margin-right: 15%;text-align: center}
+.masthead-title small {display: none}}
+@media (max-width: 320px) {.masthead-title {margin-top: 2em;margin-left: 0%;margin-right: 0%}}
+.page {margin-bottom: 4em}
+.page-title {color: $heading-color;margin-top: 0}
+.sidebar {position: fixed;top: 0;bottom: 0;left: -14rem;width: 14rem;visibility: hidden;overflow-y: auto;font-family: CustomFont, "DejaVu Sans", Verdana, Arial, sans-serif;font-size: .875rem;color: var(--krachtiggeel);color: var(--wit);background-color: var(--innovatiefblauw);-webkit-transition: all .3s ease-in-out;transition: all .3s ease-in-out}
+@media (min-width: 30em) {.sidebar {font-size: .75rem}}
+.sidebar a {font-weight: normal;color: var(--wit)}
+.sidebar-nav-toc-title,.sidebar-item {padding-left: 1rem;padding-right: 1rem}
+.sidebar-item {padding-top: 1rem;padding-bottom: 1rem}
+.sidebar-nav-toc-title,.sidebar-item p:last-child {margin-bottom: 0}
+.sidebar-nav {border-bottom: 1px solid var(--klassiekgroen)}
+.sidebar-nav-toc-item,.sidebar-nav-item {display: block;padding: .5rem 1rem;border-top: 1px solid var(--klassiekgroen)}
+.sidebar-nav-toc-item {color: var(--wit)}
+.sidebar-nav-toc-item::before {content: "\25B6";content: "\25B7";font-weight: bold;color: var(--krachtiggroen);color: var(--krachtiggeel);display: inline-block;width: 1rem;margin-left: -1rem;padding-left: 1rem}
+.sidebar-nav-toc-title {padding-top: 0rem;padding-bottom: .5rem;color: var(--krachtiggeel)}
+.sidebar-nav-item.active,a.sidebar-nav-item:hover,a.sidebar-nav-item:focus,.sidebar-nav-toc-item.active,a.sidebar-nav-toc-item:hover,a.sidebar-nav-toc-item:focus {text-decoration: underline;background-color: var(--klassiekgroen);border-color: transparent}
+.sidebar-item p {padding-top: 1.5rem}
+.sidebar .imagelink {position: relative;width: 100%}
+.sidebar .imagelink img {transition: .5s ease;outline-style: none}
+.sidebar .imagelink span {transition: .5s ease;opacity: 0;position: absolute;width: 80%;text-align: center;top: 50%;left: 50%;transform: translate(-50%, -50%);-ms-transform: translate(-50%, -50%);background-color: var(--klassiekgroen);color: var(--wit);padding: 1rem;border-radius: 5px}
+.sidebar .imagelink:hover img {opacity: 0.5}
+.sidebar .imagelink:hover span {opacity: 1}
+@media (min-width: 48em) {.sidebar-item {padding: 1.5rem}
+.sidebar-nav-toc-title,.sidebar-nav-toc-item,.sidebar-nav-item {padding-left:  1.5rem;padding-right: 1.5rem}
+.sidebar .imagelink:hover img {outline-width: 1.5rem}
+.sidebar-item p {padding-top: 2rem}}
+.sidebar-checkbox {position: absolute;opacity: 0;-webkit-user-select: none;-moz-user-select: none;user-select: none}
+.sidebar-toggle {position: absolute;top:  .8rem;left: 1rem;display: block;padding: .25rem .75rem;color: #505050;background-color: var(--wit);border-radius: .25rem;cursor: pointer}
+.sidebar-toggle:before {display: inline-block;width: 1rem;height: .75rem;content: "";vertical-align: middle;background-image: -webkit-linear-gradient(to bottom, var(--innovatiefblauw), var(--innovatiefblauw) 20%, var(--wit) 20%, var(--wit) 40%, var(--innovatiefblauw) 40%, var(--innovatiefblauw) 60%, var(--wit) 60%, var(--wit) 80%, var(--innovatiefblauw) 80%, var(--innovatiefblauw) 100%);background-image:    -moz-linear-gradient(to bottom, var(--innovatiefblauw), var(--innovatiefblauw) 20%, var(--wit) 20%, var(--wit) 40%, var(--innovatiefblauw) 40%, var(--innovatiefblauw) 60%, var(--wit) 60%, var(--wit) 80%, var(--innovatiefblauw) 80%, var(--innovatiefblauw) 100%);background-image:     -ms-linear-gradient(to bottom, var(--innovatiefblauw), var(--innovatiefblauw) 20%, var(--wit) 20%, var(--wit) 40%, var(--innovatiefblauw) 40%, var(--innovatiefblauw) 60%, var(--wit) 60%, var(--wit) 80%, var(--innovatiefblauw) 80%, var(--innovatiefblauw) 100%);background-image:         linear-gradient(to bottom, var(--innovatiefblauw), var(--innovatiefblauw) 20%, var(--wit) 20%, var(--wit) 40%, var(--innovatiefblauw) 40%, var(--innovatiefblauw) 60%, var(--wit) 60%, var(--wit) 80%, var(--innovatiefblauw) 80%, var(--innovatiefblauw) 100%)}
+.sidebar-toggle:active,#sidebar-checkbox:focus ~ .sidebar-toggle,#sidebar-checkbox:checked ~ .sidebar-toggle {color: var(--wit);background-color: var(--innovatiefblauw)}
+.sidebar-toggle:active:before,#sidebar-checkbox:focus ~ .sidebar-toggle:before,#sidebar-checkbox:checked ~ .sidebar-toggle:before {background-image: -webkit-linear-gradient(to bottom, var(--wit), var(--wit) 20%, var(--innovatiefblauw) 20%, var(--innovatiefblauw) 40%, var(--wit) 40%, var(--wit) 60%, var(--innovatiefblauw) 60%, var(--innovatiefblauw) 80%, var(--wit) 80%, var(--wit) 100%);background-image:    -moz-linear-gradient(to bottom, var(--wit), var(--wit) 20%, var(--innovatiefblauw) 20%, var(--innovatiefblauw) 40%, var(--wit) 40%, var(--wit) 60%, var(--innovatiefblauw) 60%, var(--innovatiefblauw) 80%, var(--wit) 80%, var(--wit) 100%);background-image:     -ms-linear-gradient(to bottom, var(--wit), var(--wit) 20%, var(--innovatiefblauw) 20%, var(--innovatiefblauw) 40%, var(--wit) 40%, var(--wit) 60%, var(--innovatiefblauw) 60%, var(--innovatiefblauw) 80%, var(--wit) 80%, var(--wit) 100%);background-image:         linear-gradient(to bottom, var(--wit), var(--wit) 20%, var(--innovatiefblauw) 20%, var(--innovatiefblauw) 40%, var(--wit) 40%, var(--wit) 60%, var(--innovatiefblauw) 60%, var(--innovatiefblauw) 80%, var(--wit) 80%, var(--wit) 100%)}
+@media (min-width: 30.1em) {.sidebar-toggle {position: fixed}}
+.wrap,.sidebar,.sidebar-toggle {-webkit-backface-visibility: hidden;-ms-backface-visibility: hidden;backface-visibility: hidden}
+.wrap,.sidebar-toggle {-webkit-transition: -webkit-transform .3s ease-in-out;transition: transform .3s ease-in-out}
+#sidebar-checkbox:checked + .sidebar {z-index: 10;visibility: visible}
+#sidebar-checkbox:checked ~ .sidebar,#sidebar-checkbox:checked ~ .wrap,#sidebar-checkbox:checked ~ .sidebar-toggle {-webkit-transform: translateX(14rem);-ms-transform: translateX(14rem);transform: translateX(14rem)}
+.layout-reverse .sidebar {left: auto;right: -14rem}
+.layout-reverse .sidebar-toggle {left: auto;right: 1rem}
+.layout-reverse #sidebar-checkbox:checked ~ .sidebar,.layout-reverse #sidebar-checkbox:checked ~ .wrap,.layout-reverse #sidebar-checkbox:checked ~ .sidebar-toggle {-webkit-transform: translateX(-14rem);-ms-transform: translateX(-14rem);transform: translateX(-14rem)}
+.sidebar-overlay #sidebar-checkbox:checked ~ .wrap {-webkit-transform: translateX(0);-ms-transform: translateX(0);transform: translateX(0)}
+.sidebar-overlay #sidebar-checkbox:checked ~ .sidebar-toggle {box-shadow: 0 0 0 .25rem var(--wit)}
+.sidebar-overlay #sidebar-checkbox:checked ~ .sidebar {box-shadow: .25rem 0 .5rem rgba(0,0,0,.1)}
+.layout-reverse.sidebar-overlay #sidebar-checkbox:checked ~ .sidebar {box-shadow: -.25rem 0 .5rem rgba(0,0,0,.1)}
+@media print {.sidebar-toggle {display: none}
+#sidebar-checkbox:checked ~ .sidebar,#sidebar-checkbox:checked ~ .wrap,#sidebar-checkbox:checked ~ .sidebar-toggle {-webkit-transform: translateX(0rem);-ms-transform: translateX(0rem);transform: translateX(0rem)}}
+.theme-base-red .sidebar,.theme-base-red .sidebar-toggle:active,.theme-base-red #sidebar-checkbox:checked ~ .sidebar-toggle {background-color: #ac4142}
+.theme-base-red .container a,.theme-base-red .sidebar-toggle,.theme-base-red .related-posts li a:hover {color: #ac4142}
+.theme-base-orange .sidebar,.theme-base-orange .sidebar-toggle:active {background-color: #d28445}
+.theme-base-orange .container a,.theme-base-orange .sidebar-toggle,.theme-base-orange .related-posts li a:hover {color: #d28445}
+.theme-base-green .sidebar,.theme-base-green .sidebar-toggle:active {background-color: #90a959}
+.theme-base-green .container a,.theme-base-green .sidebar-toggle,.theme-base-green .related-posts li a:hover {color: #90a959}
+.theme-base-cyan .sidebar,.theme-base-cyan .sidebar-toggle:active {background-color: #75b5aa}
+.theme-base-cyan .container a,.theme-base-cyan .sidebar-toggle,.theme-base-cyan .related-posts li a:hover {color: #75b5aa}
+.theme-base-blue .sidebar,.theme-base-blue .sidebar-toggle:active {background-color: #6a9fb5}
+.theme-base-blue .container a,.theme-base-blue .sidebar-toggle,.theme-base-blue .related-posts li a:hover {color: #6a9fb5}
+.theme-base-magenta .sidebar,.theme-base-magenta .sidebar-toggle:active {background-color: #aa759f}
+.theme-base-magenta .container a,.theme-base-magenta .sidebar-toggle,.theme-base-magenta .related-posts li a:hover {color: #aa759f}
+.theme-base-brown .sidebar,.theme-base-brown .sidebar-toggle:active {background-color: #8f5536}
+.theme-base-brown .container a,.theme-base-brown .sidebar-toggle,.theme-base-brown .related-posts li a:hover {color: #8f5536}
+p.centered {text-align: center}
+p.larger {font-size: 1.6rem}
+p.large {font-size: 1.4rem}
+p.small {font-size: 0.8rem}
+div.poem, div.narrative {margin-bottom: 5rem}
+div.toc {margin-bottom: 2rem}
+.poetry ul, ul.poetry {list-style: none;list-style-type: none;padding-left: 1rem;text-indent: -1rem}
+.poetry span[class^='indent-']{margin: 0}
+.indent-1 {font-style: normal;padding-left: 1rem}
+.indent-2 {font-style: normal;padding-left: 2rem}
+.indent-3 {font-style: normal;padding-left: 3rem}
+.indent-4 {font-style: normal;padding-left: 4rem}
+.indent-5 {font-style: normal;padding-left: 5rem}
+.indent-6 {font-style: normal;padding-left: 6rem}
+.indent-7 {font-style: normal;padding-left: 7rem}
+.indent-8 {font-style: normal;padding-left: 8rem}
+.indent-9 {font-style: normal;padding-left: 9rem}
+.indent-10 {font-style: normal;padding-left: 10rem}
+.poetry .byline {font-style: italic;font-weight: 300;letter-spacing: 0;margin-top: -.5rem}
+sub, sup {font-size: 75%;line-height: 0;position: relative;vertical-align: baseline}
+sup {top: -0.5em}
+.footnotes {line-height: 1.2rem;font-size: 0.8rem;letter-spacing: .01rem;word-wrap: break-word}
+.footnotes .foot-block {display: inline-block;padding: 0 4rem 0 2rem;margin-bottom: .8rem;font-style: italic}
+a.footnote {padding-left: .1rem;font-size: .66rem;word-break: break-all}
+ol.bibliography {list-style-type:none;padding-left: 1rem;text-indent: -1rem}
+.add {color:#288828;font-style: italic}
+.delete {text-decoration: line-through;color: #AA3232}
+.underline {text-decoration: underline}
+li.centered {text-align: center}
+li.speaker, li.speakerGroup {text-align: center;padding-top: 1.2em}
+li.speakerGroup {margin-bottom: -1.6em}
+li.attribution {text-align: right;list-style: none;padding: 0rem 1.5rem 0rem 2rem;margin: 0 0 20px 0;color: #454545}
+li.prose {list-style-position: inside;margin-left: -1em;text-indent: 0}
+li.prose-indent {text-indent: 2rem}
+@import "customized";

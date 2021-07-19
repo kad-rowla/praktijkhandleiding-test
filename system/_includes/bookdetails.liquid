@@ -1,0 +1,57 @@
+{%- assign title = include.title -%}
+{%- assign level = include.level -%}
+{%- assign br = "<br />" -%}
+{%- assign doc = site[layout.harvest] | where: "title", title | first -%}
+{%- assign details = "" | split: "," | push: doc | push: level -%}
+{%- assign children = doc.subpages -%}
+{%- assign text = doc.content -%}
+{%- assign text_br = text | newline_to_br | prepend: br -%}
+{%- assign filteredText = "" | split: "," | push: text -%}
+{%- assign headingFound = false -%}
+{%- for markdownHeading in markdownHeadings -%}
+{%- assign probe = markdownHeading | prepend: br -%}
+{%- if text_br contains probe -%}
+{%- assign headingFound = true -%}
+{%- assign markdownContent = true -%}
+{%- assign headingLevels = markdownHeadings -%}
+{% break %}
+{%- endif -%}
+{%- endfor -%}
+{%- unless headingFound -%}
+{%- if text contains "<h" and text contains "</h" -%}
+{%- assign headingFound = true -%}
+{%- assign markdownContent = false -%}
+{%- assign headingLevels = htmlHeadings -%}
+{%- else -%}
+{%- assign markdownContent = nil -%}
+{%- assign topHeadingLevel = nil -%}
+{%- endif -%}
+{%- endunless -%}
+{%- if headingFound -%}
+{%- for headingLevel in headingLevels -%}
+{%- assign text = text | remove: headingLevel -%}
+{%- assign filteredText = filteredText | push: text -%}
+{%- endfor -%}
+{%- for levelProbe in (1..6) -%}
+{%- assign pointer = 6 | minus: levelProbe -%}
+{%- assign pointerParent = pointer | plus: 1 -%}
+{%- assign count = filteredText[pointer].size | minus: filteredText[pointerParent].size | divided_by: levelProbe -%}
+{%- if count > 0 -%}
+{%- assign topHeadingLevel = levelProbe -%}
+{% break %}
+{%- endif -%}
+{%- endfor -%}
+{%- endif -%}
+{%- assign details = details | push: topHeadingLevel | push: headingFound | push: markdownContent | push: doc.url -%}
+{%- assign docs = docs | push: details -%}
+{%- if doc.date -%}
+{%- if doc.date < earliestDate or dateFoundFlag == false -%}
+{%- assign earliestDate = doc.date -%}
+{%- endif -%}
+{%- if doc.date > latestDate or dateFoundFlag == false -%}
+{%- assign latestDate = doc.date -%}
+{%- endif -%}
+{%- assign dateFoundFlag = true -%}
+{%- else -%}
+{%- assign dateMissingFlag = true -%}
+{%- endif -%}

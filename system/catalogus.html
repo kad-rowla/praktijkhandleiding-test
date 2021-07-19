@@ -1,0 +1,13 @@
+---
+permalink: /catalogus
+layout: page
+siteindex: true
+title: Catalogus BAG 2018
+alias: catalogus
+sortkey: 100
+sortorder: sortkey
+harvest: catalogus
+---
+
+{%- assign docs = site[page.harvest] | where: "bookindex", "true" -%}
+{%- include themaoverzicht.html verzameling=docs -%}

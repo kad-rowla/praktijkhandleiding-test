@@ -1,0 +1,10 @@
+---
+layout: default
+title: "404: Bladzijde niet gevonden"
+permalink: /404.html
+---
+
+<div class="page">
+{% assign item = site.snippets | where: "title", "Error 404" | first %}
+{{ item.content }}
+</div>

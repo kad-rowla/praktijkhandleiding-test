@@ -1,0 +1,6 @@
+footer p {margin-left: 0;margin-right: 0;margin-top: 0;margin-bottom: 0}
+footer {display: block;margin-top: 3rem;margin-left: 2cm;margin-right: 2cm;text-align: center;padding-bottom: 1rem;padding-top: 1rem;border-top-width: 1px;border-top-style: thin;border-top-color: #eee}
+.footer-title {font-size: .75rem;margin-top: 0;margin-bottom: .1rem;color: #505050;line-height: 1rem}
+.footer-text {font-size: .55rem;font-weight: 300;color: $text-color;letter-spacing: .04rem;font-family: $heading-font}
+.footer-title a,.footer-text a {color: $text-color}
+@media (max-width: 48em) {footer {margin-left: 0;margin-right: 0}}

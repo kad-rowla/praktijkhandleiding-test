@@ -1,0 +1,82 @@
+---
+layout: compress
+---
+<!DOCTYPE html>
+<html lang="nl">
+{% include head.html %}
+<body class="theme-base-{{site.color-scheme}}">
+{% include stats.html %}
+{% include sidebar.html %}
+<div class="wrap">
+<div class="masthead">
+<div class="container-fluid logo">
+<a href="{{ site.publisher.url }}" target="_blank" rel="noreferrer">
+<img src="{{- site.baseurl -}}{{- site.assets_dir -}}/img/logo.svg" alt="{{site.publisher.name}}">
+</a>
+</div>
+<div class="container">
+<p class="masthead-title">
+<a href="{{ site.baseurl }}" title="Ga naar {% if site.baseurl-label.size > 0 -%}{{- site.baseurl-label | downcase | strip_html | strip -}}{%- else -%}{{- 'homepage' -}}{%- endif -%}">
+{%- unless site.baseurl == site.production_baseurl %}{{ site.data.testing.prepend | strip_html }}{% endunless %}{{ site.title | newline_to_br -}}
+</a>
+<br>
+<small>
+{%- unless site.baseurl == site.production_baseurl %}{{ site.data.testing.prepend | strip_html }}{% endunless %}{{ site.tagline -}}
+</small>
+</p>
+</div>
+</div>
+<div class="container content" id="main">
+{{ content }}
+</div>
+<div class="container-fluid">
+{% include footer.html %}
+</div>
+</div>
+<label for="sidebar-checkbox" class="sidebar-toggle"></label>
+<div class="zoekicoon">
+{% assign zoekpagina = site.pages | where:"title", "Zoek&hellip;" | first %}
+<a href="{{ site.baseurl }}{{ zoekpagina.url }}">
+<img src="{{- site.baseurl -}}{{- site.assets_dir -}}/img/search.svg" alt="Zoek&hellip;">
+</a>
+</div>
+<script>
+function getParameterByName(name, url) {
+if (!url) url = window.location.href;
+name = name.replace(/[\[\]]/g, '\\$&');
+var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+results = regex.exec(url);
+if (!results) return null;
+if (!results[2]) return '';
+return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+var searchquery = getParameterByName('q');
+if (!!searchquery.trim()) {
+var searchquery = searchquery.split(' ');
+for (var searchpointer in searchquery) {
+var searchword = searchquery[searchpointer].trim();
+if (!!searchword) {
+var regex = new RegExp("(" + searchword + ")(?!([^<])*?>)(?!<(script|code)[^>]*?>)(?![^<]*?<\\/(script|code)>|$)", "gi");
+var content = document.getElementById("main").innerHTML;
+document.getElementById("main").innerHTML = content.replace(regex, "<mark>$1</mark>");
+}
+}
+}
+(function(document) {
+var toggle = document.querySelector('.sidebar-toggle');
+var sidebar = document.querySelector('#sidebar');
+var checkbox = document.querySelector('#sidebar-checkbox');
+document.addEventListener('click', function(e) {
+var target = e.target;
+if(!checkbox.checked ||
+sidebar.contains(target) ||
+(target === checkbox || target === toggle)) return;
+checkbox.checked = false;
+}, false);
+})(document);
+</script>
+</body>
+{% if page.mermaid %}
+{% include mermaid.html %}
+{% endif %}
+</html>

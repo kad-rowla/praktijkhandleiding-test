@@ -1,0 +1,8 @@
+{%- assign collectionDetails = site.collections | where: "label", include.currentCollection | first -%}
+{%- if collectionDetails.prescriptiveness -%}
+<div class="prescriptiveness">
+<span class="{{- collectionDetails.prescriptiveness -}}">
+{{- site.data.prescriptiveness.declaration[collectionDetails.prescriptiveness] -}}
+</span>
+</div>
+{%- endif -%}

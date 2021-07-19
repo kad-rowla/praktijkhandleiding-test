@@ -1,0 +1,2 @@
+{%- assign snippet = site[include.collection] | where: include.field, include.value | first -%}
+{{- site.url -}}{{- site.baseurl -}}{{- snippet.url -}}

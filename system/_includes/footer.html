@@ -1,0 +1,12 @@
+<footer>
+<p class="footer-text">
+Copyright © 2018
+{%- assign jaar = "now" | date: "%Y" -%}
+{%- unless jaar == "2018" -%}
+&thinsp;&ndash;&thinsp;{{- jaar -}}
+{%- endunless %} {{ site.publisher.name -}}.
+{% assign voettekst = site.snippets | where:"title", "footer" | first %}
+{{ voettekst.content | replace: '<p>', ' ' | remove: '</p>' | strip }}
+{{ "now" | date: "%Y-%m-%d %H:%M" }}.
+</p>
+</footer>

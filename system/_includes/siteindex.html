@@ -1,0 +1,18 @@
+<div class="introduction">
+{%- assign welcome = site.snippets | where:"title", "welcome-top" | first -%}
+{{- welcome.content | strip -}}
+</div>
+<div class="toc">
+{%- assign pages_list = site.pages | where: "siteindex", "true" | sort:"sortkey" -%}
+<ul>
+{%- for node in pages_list -%}
+{%- if node.title.size > 0 -%}
+<li><a href="{{- site.baseurl -}}{{- node.url -}}">{{- node.title -}}</a></li>
+{%- endif -%}
+{%- endfor -%}
+</ul>
+</div>
+<div class="introduction">
+{%- assign welcome = site.snippets | where:"title", "welcome-bottom" | first -%}
+{{- welcome.content | strip -}}
+</div>

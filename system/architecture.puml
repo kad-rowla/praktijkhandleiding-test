@@ -1,0 +1,139 @@
+'' PlantUML Class Diagram
+'' https://www.plantuml.com/plantuml
+
+@startuml
+
+skinparam defaultFontColor black
+skinparam defaultFontName Lucida Sans
+skinparam defaultTextAlignment center
+skinparam defaultFontSize 11
+skinparam defaultFontStyle normal
+skinparam shadowing false
+skinparam wrapWidth 90
+skinparam roundCorner 10
+skinparam class {
+    ArrowColor #70a426
+    ArrowFontSize 10
+    ArrowThickness 1.5
+    AttributeIconSize 0
+    BackgroundColor #ffffff
+    BorderColor #007bc7
+    BorderThickness 2.5
+    FontColor #007bc7
+    FontSize 12
+    FontStyle bold
+}
+
+hide circle
+hide empty members
+'' hide attributes
+'' hide methods
+hide namespace
+'' hide stereotype
+
+'' hide Site
+hide Snippet
+
+'' green #e1eddb
+'' yellow #fefbdd
+'' red #f9dfdd
+'' light gray #e6e6e6
+'' dark gray #606060
+
+'' =================================================================================================
+
+'' title Conceptual architecture for publishing linked data-specification details on the web using a static site generator
+
+'' Jekyll expects a layout variable in the front matter of each page
+
+actor DomainExpert #e1eddb;line:black [
+Domain Expert
+]
+
+actor Developer #e1eddb;line:black
+
+actor Overseer #e6e6e6;line:606060;text:606060
+
+actor Archivist #e6e6e6;line:606060;text:606060
+'' https://www.snia.org/tech_activities/standards/curr_standards/sirf
+
+actor User #e1eddb;line:black
+
+control Git #e6e6e6;line:606060 [
+Detailed\nVersion\nControl
+]
+
+cloud GitHub #e6e6e6;line:606060;text:606060
+
+cloud GitHubPages #e6e6e6;line:606060;text:606060 [
+GitHub Pages
+]
+
+node Engine #e1eddb [
+Publishing Engine
+]
+
+node MarkupTool #e6e6e6;line:606060;text:606060 [
+Markup Tooling
+]
+
+node LinkedDataServer #e6e6e6;line:606060;text:606060 [
+Linked Data Server
+]
+
+file NewsFeed #e1eddb [
+News Feed
+]
+
+file Book #e1eddb
+
+file StyleSheetPdf #e1eddb [
+Style
+]
+
+file StyleSheetWeb #e1eddb [
+Style
+]
+
+database database #line.bold;back:e1eddb [
+\n<u>Granular, expert-curated and -linked content</u>\n
+'' ..
+'' \n<i>Common plain-text-based Internet standards (e.g. markdown, mermaid, svg and yaml) and common web image formats</i>
+]
+
+cloud Website #e1eddb
+
+package ReSpec #e6e6e6;line:orange;text:606060
+
+database <--> Git
+Git <-> GitHub
+Git .right.> Overseer
+Developer -up-> Engine
+'' Developer --> LinkedDataServer
+Developer -up-> StyleSheetPdf
+Developer -up-> StyleSheetWeb
+DomainExpert -> database : plain text, images
+database .[#orange]> Archivist #text:orange : plain text, images
+Engine <-> Git
+StyleSheetPdf <-up-> Git
+'' DomainExpert --> Git
+'' Developer --> Git
+database --> Engine : markdown,\nmermaid,\nsvg, yaml,\nimages
+Engine -left-> GitHubPages : css, html,\njavascript,\njekyll, json-ld,\nliquid,\nmarkdown, xml
+GitHubPages --> Website
+Website --> NewsFeed : atom
+Website -[#orange]> MarkupTool #text:orange : html,\njavascript
+Book -[#a8a8a8]-> User
+NewsFeed -[#a8a8a8]-> User
+Website --> User : html,\njavascript
+Website -[#orange]-> LinkedDataServer #text:orange : json-ld
+Website .[#red].> ReSpec #text:red : html
+ReSpec .[#a8a8a8].> User
+User <.up.> DomainExpert
+database --> MarkupTool
+StyleSheetPdf -> MarkupTool : css
+StyleSheetWeb -up-> Engine : css
+MarkupTool --> Book : pdf
+LinkedDataServer -[#a8a8a8]-> User
+
+@enduml

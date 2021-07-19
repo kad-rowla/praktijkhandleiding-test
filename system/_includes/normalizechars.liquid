@@ -1,0 +1,11 @@
+{%- assign ncArrayOut = "" | split: "," -%}
+{%- assign ncArrayIn = include.string | normalize_whitespace | replace: "<br", " <br" | replace: "< br", " < br" | strip_html | replace: " ", " " | replace: "&colon;", ":" | replace: "&comma;", "," | replace: "&num;", "#" | replace: "&#8617;", "↩" | replace: "&amp;", "&" | replace: "&lt;", "<" | replace: "&gt;", ">" | split: "." -%}
+{%- for ncArrayInItem in ncArrayIn -%}
+{%- assign ncArrayOutItem = ncArrayInItem | slugify: "latin" -%}
+{%- assign ncArrayInItemFirstChar = ncArrayInItem | slice: 0, 1 -%}
+{%- unless "1234567890" contains ncArrayInItemFirstChar -%}
+{%- assign ncArrayOutItem = ncArrayOutItem | prepend: "-" -%}
+{%- endunless -%}
+{%- assign ncArrayOut = ncArrayOut | push: ncArrayOutItem -%}
+{%- endfor -%}
+{%- assign string = ncArrayOut | join: "." | replace: "-", " " | normalize_whitespace | strip -%}

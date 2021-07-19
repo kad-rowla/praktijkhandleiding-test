@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200.9 200.9">
+    <defs>
+        <style>
+            .zoek {fill:none;stroke-linecap:round}
+        </style>
+        <mask id="zoek" width="200" height="200">
+            <rect x="0" y="0" width="100%" height="100%" fill="white"/>
+            <circle cx="76.3" cy="76.3" r="64" stroke="black" stroke-width="22" fill="black"/>
+        </mask>
+    </defs>
+    <line class="zoek" x1="76.3" y1="76.3" x2="182.3" y2="182.3" stroke-width="37" stroke="#007ea9" mask="url(#zoek)"/>
+    <circle class="zoek" cx="76.3" cy="76.3" r="65.2" stroke-width="22" stroke="#008dc9"/>
+</svg>

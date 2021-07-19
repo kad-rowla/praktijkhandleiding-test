@@ -1,0 +1,217 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 479.91 474.82">
+    <defs>
+        <style>
+            .backdrop-verblijfsobject {fill:#d9ecf8}
+            .backdrop-pand {fill:#f9dfdd}
+            .backdrop-planfase {fill:#dfe6e1;mix-blend-mode:multiply}
+            .titel-pand {font-size:11.25px;font-family:RijksoverheidSansHeading-Bold, RijksoverheidSansHeading, calibri, arial, sans-serif;font-weight:700;fill:#d52c1e}
+            .titel-verblijfsobject {font-size:11.25px;font-family:RijksoverheidSansHeading-Bold, RijksoverheidSansHeading, calibri, arial, sans-serif;font-weight:700;fill:#137abf}
+            .statusovergang-lijn {stroke:#000000;stroke-width:0.5;fill:none}
+            .statusovergang-streepjes {stroke:#000000;stroke-width:0.5;fill:none;stroke-dasharray:2.07 2.07}
+            .statusvlakken-pand {fill:#d52c1e}
+            .statusvlakken-verblijfsobject {fill:#137abf}
+            .titel-status {font-family:RijksoverheidSansText-Regular, RijksoverheidSansText, calibri, arial, sans-serif;font-size:9px;fill:#fff}
+            .label-planfase {fill:#275a38}
+            .titel-planfase {font-family:RijksoverheidSansText-Bold, RijksoverheidSansText, calibri, arial, sans-serif;font-size:9px;fill:#fff;font-weight:700}
+        </style>
+
+        <rect id="statusvlak" width="85.04" height="37.1"/>
+        <use id="statusvlak-pand-links" xlink:href="#statusvlak" class="statusvlakken-pand" x="36.93"/>
+        <use id="statusvlak-pand-rechts" xlink:href="#statusvlak" class="statusvlakken-pand" x="139.91"/>
+        <use id="statusvlak-verblijfsobject-links" xlink:href="#statusvlak" class="statusvlakken-verblijfsobject" x="254.45"/>
+        <use id="statusvlak-verblijfsobject-rechts" xlink:href="#statusvlak" class="statusvlakken-verblijfsobject" x="357.43"/>
+
+        <symbol id="pijlpunt" viewBox="0 0 393 731">
+            <polyline points="393 365 0 0 0 731 393 365" fill="#000000"/>
+        </symbol>
+        <use id="pijlpunt-rechts" xlink:href="#pijlpunt" transform="matrix(1 0 0 1 -3.93 14.895)" width="3.93" height="7.31"/>
+        <use id="pijlpunt-links" xlink:href="#pijlpunt" transform="matrix(-1 0 0 1 88.97 14.895)" width="3.93" height="7.31"/>
+        <use id="pijlpunt-boven" xlink:href="#pijlpunt" transform="matrix(0 -1 1 0 38.865 41.03)" width="3.93" height="7.31"/>
+        <use id="pijlpunt-onder" xlink:href="#pijlpunt" transform="matrix(0 1 -1 0 46.175 -3.93)" width="3.93" height="7.31"/>
+
+    </defs>
+
+    <title>Statusvolgorde</title>
+
+    <!-- OBJECTTYPEKOLOMMEN -->
+    <rect class="backdrop-pand" x="0" y="18.53" width="236.69" height="456.28"/>
+    <text class="titel-pand" x="104.91" y="9.31">PAND</text>
+
+    <rect class="backdrop-verblijfsobject" x="243.21" y="18.53" width="236.69" height="456.28"/>
+    <text class="titel-verblijfsobject" x="320.07" y="9.31">VERBLIJFSOBJECT</text>
+
+    <!-- PLANFASES -->
+    <rect class="backdrop-planfase" x="11.22" y="34.84" width="457.39" height="72.66"/>
+    <svg x="201.67" y="29.57" width="76.54" height="14.67">
+        <rect class="label-planfase" x="0" y="0" width="100%" height="100%"/>
+        <text class="titel-planfase" x="50%" y="50%" alignment-baseline="central" text-anchor="middle">PLANVORMING</text>
+    </svg>
+
+    <rect class="backdrop-planfase" x="11.22" y="120.63" width="457.39" height="72.66"/>
+    <svg x="201.67" y="114.87" width="76.54" height="14.67">
+        <rect class="label-planfase" x="0" y="0" width="100%" height="100%"/>
+        <text class="titel-planfase" x="50%" y="50%" alignment-baseline="central" text-anchor="middle">BOUW</text>
+    </svg>
+
+    <rect class="backdrop-planfase" x="11.22" y="206.41" width="457.39" height="120.3"/>
+    <svg x="201.67" y="201.7" width="76.54" height="14.67">
+        <rect class="label-planfase" x="0" y="0" width="100%" height="100%"/>
+        <text class="titel-planfase" x="50%" y="50%" alignment-baseline="central" text-anchor="middle">GEBRUIK</text>
+    </svg>
+
+    <rect class="backdrop-planfase" x="11.22" y="339.94" width="457.39" height="120.3"/>
+    <svg x="201.67" y="334.18" width="76.54" height="14.67">
+        <rect class="label-planfase" x="0" y="0" width="100%" height="100%"/>
+        <text class="titel-planfase" x="50%" y="50%" alignment-baseline="central" text-anchor="middle">SLOOP</text>
+    </svg>
+
+    <!-- ============================================ STATUSSEN ============ -->
+
+    <!-- BOUWVERGUNNING VERLEEND -->
+    <use xlink:href="#statusvlak-pand-links" y="60.81"/>
+    <text class="titel-status" x="48" y="77.6">Bouwvergunning</text>
+    <text class="titel-status" x="63.48" y="88.41">verleend</text>
+
+    <!-- NIET GEREALISEERD PAND -->
+    <use xlink:href="#statusvlak-pand-rechts" y="60.81"/>
+    <text class="titel-status" text-anchor="middle" x="182.43" y="77.6">Niet gerealiseerd</text>
+    <text class="titel-status" text-anchor="middle" x="182.43" y="88.41">pand</text>
+    <path d="M121.97 79.36 H135.98" class="statusovergang-lijn"/>
+    <use xlink:href="#pijlpunt-rechts" x="139.91" y="60.81"/>
+
+    <!-- BOUW GESTART -->
+    <use xlink:href="#statusvlak-pand-links" y="146.6"/>
+    <svg x="36.93" y="146.6" width="85.04" height="37.1">
+        <text class="titel-status" text-anchor="middle" x="50%" y="50%" alignment-baseline="central">Bouw gestart</text>
+    </svg>
+    <path d="M79.45 97.91 V142.67" class="statusovergang-lijn"/>
+    <use xlink:href="#pijlpunt-onder" x="36.93" y="146.6"/>
+
+    <!-- PAND IN GEBRUIK (NIET INGEMETEN) -->
+    <use xlink:href="#statusvlak-pand-links" y="232.38"/>
+    <text class="titel-status" x="50.99" y="249.17">Pand in gebruik</text>
+    <text class="titel-status" x="49.04" y="259.97">(niet ingemeten)</text>
+    <path d="M125.9 249.04 H174.81 V256.355" class="statusovergang-streepjes"/>
+    <use xlink:href="#pijlpunt-links" x="36.93" y="232.38" transform="translate(0 -1.89)"/>
+    <path d="M79.45 183.7 V228.45" class="statusovergang-lijn"/>
+    <use xlink:href="#pijlpunt-onder" x="36.93" y="232.38"/>
+
+    <!-- VERBOUWING PAND -->
+    <use xlink:href="#statusvlak-pand-rechts" y="256.355"/>
+    <svg x="139.91" y="256.355" width="85.04" height="37.1">
+        <text class="titel-status" text-anchor="middle" x="50%" y="50%" alignment-baseline="central">Verbouwing pand</text>
+    </svg>
+    <path d="M121.97 242.56 H182.83 V252.43" class="statusovergang-lijn"/>
+    <use xlink:href="#pijlpunt-onder" x="139.91" y="256.355"/>
+    <path d="M121.97 307.25 H182.83 V297.11" class="statusovergang-lijn"/>
+    <use xlink:href="#pijlpunt-boven" x="139.91" y="256.355"/>
+
+    <!-- PAND IN GEBRUIK -->
+    <use xlink:href="#statusvlak-pand-links" y="280.33"/>
+    <text class="titel-status" x="50.99" y="302.52">Pand in gebruik</text>
+    <path d="M79.45 269.48 V280.33" class="statusovergang-lijn"/>
+    <use xlink:href="#pijlpunt-onder" x="36.93" y="280.33"/>
+    <path d="M174.81 293.455 V300.77 H125.9" class="statusovergang-streepjes"/>
+    <use xlink:href="#pijlpunt-links" x="36.93" y="280.33" transform="translate(0 1.89)"/>
+    <path d="M36.93 165.15 h-19.37 V298.88 H36.93" class="statusovergang-streepjes"/>
+    <use xlink:href="#pijlpunt-rechts" x="36.93" y="280.33"/>
+
+    <!-- SLOOPVERGUNNING VERLEEND -->
+    <use xlink:href="#statusvlak-pand-links" y="365.91"/>
+    <text class="titel-status" x="48.04" y="382.71">Sloopvergunning</text>
+    <text class="titel-status" x="63.48" y="393.5">verleend</text>
+    <path d="M36.93 250.93 h-11.93 V384.46 H36.93" class="statusovergang-streepjes"/>
+    <use xlink:href="#pijlpunt-rechts" x="36.93" y="365.91"/>
+    <path d="M79.45 317.43 V362.55" class="statusovergang-lijn"/>
+    <use xlink:href="#pijlpunt-onder" x="36.93" y="365.91"/>
+
+    <!-- PAND GESLOOPT -->
+    <use xlink:href="#statusvlak-pand-links" y="413.86"/>
+    <svg x="36.93" y="413.86" width="85.04" height="37.1">
+        <text class="titel-status" text-anchor="middle" x="50%" y="50%" alignment-baseline="central">Pand gesloopt</text>
+    </svg>
+    <path d="M79.45 403.01 V409.93" class="statusovergang-lijn"/>
+    <use xlink:href="#pijlpunt-onder" x="36.93" y="413.86"/>
+
+    <!-- PAND BUITEN GEBRUIK -->
+    <use xlink:href="#statusvlak-pand-rechts" y="365.91"/>
+    <text class="titel-status" x="160.33" y="382.71">Pand buiten</text>
+    <text class="titel-status" x="168.55" y="393.5">gebruik</text>
+    <path d="M121.97 313.73 H182.83 V361.98" class="statusovergang-lijn"/>
+    <use xlink:href="#pijlpunt-onder" x="139.91" y="365.91"/>
+
+    <!-- PAND TEN ONRECHTE OPGEVOERD -->
+    <use xlink:href="#statusvlak-pand-rechts" y="413.86"/>
+    <text class="titel-status" x="148.85" y="430.65">Pand ten onrechte</text>
+    <text class="titel-status" x="162.58" y="441.46">opgevoerd</text>
+    <path d="M121.97 313.73 H130.94 V432.41 H135.98" class="statusovergang-lijn"/>
+    <use xlink:href="#pijlpunt-rechts" x="139.91" y="413.86"/>
+
+    <!-- NIET GEREALISEERD VERBLIJFSOBJECT -->
+    <use xlink:href="#statusvlak-verblijfsobject-links" y="60.81"/>
+    <text class="titel-status" x="265.91" y="77.6">Niet gerealiseerd</text>
+    <text class="titel-status" x="270.98" y="88.41">verblijfsobject</text>
+    <path d="M357.43 79.36 H339.49" class="statusovergang-lijn"/>
+    <use xlink:href="#pijlpunt-links" x="254.45" y="60.81"/>
+
+    <!-- VERBLIJFSOBJECT GEVORMD -->
+    <use xlink:href="#statusvlak-verblijfsobject-rechts" y="60.81"/>
+    <text class="titel-status" x="373.64" y="77.6">Verblijfsobject</text>
+    <text class="titel-status" x="383.4" y="88.41">gevormd</text>
+
+    <!-- VERBLIJFSOBJECT IN GEBRUIK (NIET INGEMETEN) -->
+    <use xlink:href="#statusvlak-verblijfsobject-rechts" y="232.38"/>
+    <text class="titel-status" x="373.64" y="243.15">Verblijfsobject</text>
+    <text class="titel-status" x="381.68" y="253.96">in gebruik</text>
+    <text class="titel-status" x="369.54" y="264.75">(niet ingemeten)</text>
+    <path d="M304.59 256.355 v-7.315 H353.5" class="statusovergang-streepjes"/>
+    <use xlink:href="#pijlpunt-rechts" x="357.43" y="232.38" transform="translate(0 -1.89)"/>
+    <path d="M399.95 97.91 V228.45" class="statusovergang-lijn"/>
+    <use xlink:href="#pijlpunt-onder" x="357.43" y="232.38"/>
+
+    <!-- VERBOUWING VERBLIJFSOBJECT -->
+    <use xlink:href="#statusvlak-verblijfsobject-links" y="256.355"/>
+    <svg x="254.45" y="256.355" width="85.04" height="37.1">
+        <text class="titel-status" text-anchor="middle" x="50%" y="16.79">Verbouwing</text>
+        <text class="titel-status" text-anchor="middle" x="50%" y="27.59">verblijfsobject</text>
+    </svg>
+    <path d="M357.43 242.56 H296.97 V252.43" class="statusovergang-lijn"/>
+    <use xlink:href="#pijlpunt-onder" x="254.45" y="256.355"/>
+    <path d="M357.43 307.25 H296.97 V297.11" class="statusovergang-lijn"/>
+    <use xlink:href="#pijlpunt-boven" x="254.45" y="256.355"/>
+
+    <!-- VERBLIJFSOBJECT IN GEBRUIK -->
+    <use xlink:href="#statusvlak-verblijfsobject-rechts" y="280.33"/>
+    <text class="titel-status" x="373.64" y="297.12">Verblijfsobject</text>
+    <text class="titel-status" x="381.68" y="307.92">in gebruik</text>
+    <path d="M304.59 293.455 v7.315 H353.5" class="statusovergang-streepjes"/>
+    <use xlink:href="#pijlpunt-rechts" x="357.43" y="280.33" transform="translate(0 1.89)"/>
+    <path d="M399.95 269.48 V280.33" class="statusovergang-lijn"/>
+    <use xlink:href="#pijlpunt-onder" x="357.43" y="280.33"/>
+    <path d="M442.47 79.36 h19.37 V298.88 H446.4" class="statusovergang-streepjes"/>
+    <use xlink:href="#pijlpunt-links" x="357.43" y="280.33"/>
+
+    <!-- VERBLIJFSOBJECT BUITEN GEBRUIK -->
+    <use xlink:href="#statusvlak-verblijfsobject-links" y="365.91"/>
+    <text class="titel-status" x="270.66" y="382.71">Verblijfsobject</text>
+    <text class="titel-status" x="270.25" y="393.5">buiten gebruik</text>
+    <path d="M357.43 313.73 H296.97 V361.98" class="statusovergang-lijn"/>
+    <use xlink:href="#pijlpunt-onder" x="254.45" y="365.91"/>
+
+    <!-- VERBLIJFSOBJECT INGETROKKEN -->
+    <use xlink:href="#statusvlak-verblijfsobject-rechts" y="413.86"/>
+    <text class="titel-status" x="373.64" y="430.66">Verblijfsobject</text>
+    <text class="titel-status" x="377.88" y="441.45">ingetrokken</text>
+    <path d="M442.47 250.93 h11.93 V432.41 H446.4" class="statusovergang-streepjes"/>
+    <use xlink:href="#pijlpunt-links" x="357.43" y="413.86"/>
+    <path d="M399.95 317.43 V410.5" class="statusovergang-lijn"/>
+    <use xlink:href="#pijlpunt-onder" x="357.43" y="413.86"/>
+
+    <!-- VERBLIJFSOBJECT TEN ONRECHTE OPGEVOERD -->
+    <use xlink:href="#statusvlak-verblijfsobject-links" y="413.86"/>
+    <text class="titel-status" x="263.68" y="430.65">Verblijfsobject ten</text>
+    <text class="titel-status" x="259.8" y="441.46">onrechte opgevoerd</text>
+    <path d="M357.43 313.73 H348.46 V432.41 H343.42" class="statusovergang-lijn"/>
+    <use xlink:href="#pijlpunt-links" x="254.45" y="413.86"/>
+
+</svg>

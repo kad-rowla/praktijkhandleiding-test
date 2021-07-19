@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+<div class="page">
+{% include themaiteminhoud.html %}
+{% if page.source and site.data.linkeddata.source.print %}
+<a href="{{- page.source -}}" class="source-label" target="_blank" rel="noreferrer">{{- site.data.linkeddata.source.label | strip_html | normalize_whitespace | strip_newlines | strip -}}</a>
+{% endif %}
+{% if layout.showSubarticles %}
+<div class="beslisboom">
+{% include generictext.html generictext="-subarticles-intro" %}
+{% assign articleTitle = page.title | downcase %}
+{% assign articleCollection = page.subarticleCollection | downcase %}
+{% assign subarticles = site[articleCollection] | where: layout.filter, articleTitle | sort_natural: "title" | sort: "sortkey" %}
+<ul>
+{% for subarticle in subarticles %}
+<li>
+<a href="{{ site.baseurl }}{{ subarticle.url }}" class="lijstitem-titel">
+{{ subarticle.title }}
+</a>
+<span class="itemdetails">
+({{ subarticle.date | date: "%Y-%m-%d" }})
+</span>
+</li>
+{% endfor %}
+</ul>
+</div>
+{% endif %}
+{%- assign filter = layout.filter | downcase -%}
+{%- assign harvest = layout.harvest | downcase -%}
+{%- assign harvested = site[harvest] -%}
+{% include faqlist.html verzameling=harvested thema=filter %}
+{% include taglists.html %}
+</div>

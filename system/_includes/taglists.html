@@ -1,0 +1,30 @@
+{%- include findlinks.html docArray=include.docArray -%}
+{%- unless page[site.data.print.flag] or linkArrayArray.size == 0 -%}
+{% include generictext.html generictext="-taglist-intro" %}
+<div class="tagsections">
+{%- for linkArray in linkArrayArray -%}
+<div class="tagsection {{ linkArray[1] -}}">
+<span class="taglisttype" id="{{- linkArray[0] | slugify: 'latin' | downcase -}}">{{ linkArray[0] | downcase -}}{% if linkArray[5].size > 0 -%}<span class="taglistconceptclassifier">({{- linkArray[5] | downcase -}})</span>{%- endif -%}:</span>
+{% if site.data.prescriptiveness.appendToTagLists -%}
+<span class="taglistprescriptiveness"> ({{ site.data.prescriptiveness.declaration[linkArray[1]] -}})</span>
+{%- endif -%}
+<ul class="taglist">
+{%- for link in linkArray[4] -%}
+<li>
+{%- assign searchMarker = link[0] | prepend: " " | append: " " -%}
+{%- if site.data.stopwords.size > 0 -%}
+{%- for stopWord in site.data.stopwords -%}
+{%- assign stopWordMask = stopWord | prepend: " " | append: " " -%}
+{%- assign searchMarker = searchMarker | replace: stopWordMask, " " -%}
+{%- endfor -%}
+{%- endif -%}
+{%- assign searchMarker = searchMarker | normalize_whitespace | strip | replace: "&", "&amp;" | replace: "+", "&plus;" | replace: " ", "+" -%}
+<a href="{{- link[1] -}}{%- if linkArray[2] and searchMarker.size > 0 -%}{{- searchMarker | prepend: "?q=" -}}{%- endif -%}" class="tagitem">{{- link[0] -}}</a>
+</li>
+{%- endfor %}
+</ul>
+</div>
+{%- endfor %}
+</div>
+{% include generictext.html generictext="-item-bottom" %}
+{%- endunless -%}

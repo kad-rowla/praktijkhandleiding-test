@@ -1,0 +1,102 @@
+<div class="breadcrumb">
+<p>
+{%- assign bctSeparator = site.data.breadcrumbtrail.separator | downcase | strip_html -%}
+<a class="parent" href="{{- site.baseurl -}}">
+{%- if site.baseurl-label.size > 0 -%}
+{%- assign bctHomepage = site.baseurl-label | downcase | strip -%}
+{%- else -%}
+{%- assign bctHomepage = site.data.breadcrumbtrail.defaultHomepageLabel -%}
+{%- endif -%}
+{%- assign bctHomepageWords = bctHomepage | split: " " -%}
+{%- for dummyIterator in bctHomepageWords -%}
+{%- assign bctFirstWord = bctHomepage | truncatewords: 1, "" | strip -%}
+{%- for bctArticleWord in site.data.articlewords -%}
+{%- if bctFirstWord == bctArticleWord and bctFirstWord != bctHomepage -%}
+{%- assign bctHomepage = bctHomepage | remove_first: bctArticleWord | strip -%}
+{%- endif -%}
+{%- endfor -%}
+{%- endfor -%}
+{{- bctHomepage -}}
+</a>
+<span class="separator">
+{{ bctSeparator }}
+</span>
+{%- if page.collection -%}
+{%- assign bctTrail = "" | split: "," -%}
+{%- if page.layout == "book" -%}
+{%- assign bctDocs = site[layout.harvest] | where: site.data.print.flag, "false" -%}
+{%- assign bctPointer = page.title | downcase | strip -%}
+{%- for dummyIterator in (1..5) -%}
+{%- for bctDoc in bctDocs -%}
+{%- assign bctParentFound = false -%}
+{%- for bctDocSubpage in bctDoc.subpages -%}
+{%- assign bctDocSubpageDowncase = bctDocSubpage | downcase | strip -%}
+{%- if bctDocSubpageDowncase == bctPointer -%}
+{%- assign bctPointer = bctDoc.title | downcase | strip -%}
+{%- assign bctTrailStep = "" | split: "," | push: bctPointer | push: bctDoc.url -%}
+{%- assign bctTrail = bctTrail | unshift: bctTrailStep -%}
+{%- assign bctBookIndex = bctDoc.bookindex -%}
+{%- assign bctParentFound = true -%}
+{%- break -%}
+{%- else -%}
+{%- assign bctBookIndex = false -%}
+{%- endif -%}
+{%- endfor -%}
+{%- if bctParentFound -%}
+{%- break -%}
+{%- endif -%}
+{%- endfor -%}
+{%- if bctBookIndex -%}
+{%- break -%}
+{%- else -%}
+{%- endif -%}
+{%- endfor -%}
+{%- endif -%}
+{%- assign bctPointer = page.collection -%}
+{%- for dummyIterator in (2..site.collections.size) -%}
+{%- assign bctThisCollection = site.collections | where: "label", bctPointer | first -%}
+{%- assign bctPreviousPointer = bctPointer -%}
+{%- assign bctPointer = bctThisCollection.origin -%}
+{%- assign bctAlias = bctThisCollection.alias -%}
+{%- if bctPointer -%}
+{%- assign bctName = page[bctPointer] | downcase | split: "," | first | strip -%}
+{%- assign bctDocs = site[bctPointer] -%}
+{%- else -%}
+{%- assign bctDocs = site.pages -%}
+{%- if bctAlias -%}
+{%- assign bctName = bctAlias | downcase -%}
+{%- else -%}
+{%- assign bctName = bctPreviousPointer | downcase -%}
+{%- endif -%}
+{%- endif -%}
+{%- for bctDoc in bctDocs -%}
+{%- assign bctDocTitle = bctDoc.title | downcase | strip -%}
+{%- assign bctDocAlias = bctDoc.alias | downcase | strip -%}
+{%- if bctDocTitle == bctName or bctDocAlias == bctName -%}
+{%- assign bctTrailStep = "" | split: "," | push: bctName | push: bctDoc.url -%}
+{%- assign bctTrail = bctTrail | unshift: bctTrailStep -%}
+{%- break -%}
+{%- endif -%}
+{%- endfor -%}
+{%- unless bctPointer -%}
+{%- break -%}
+{%- endunless -%}
+{%- endfor -%}
+{%- for bctTrailStep in bctTrail -%}
+<a class="parent" href="{{- site.baseurl -}}{{- bctTrailStep[1] -}}">
+{{- bctTrailStep[0] | normalize_whitespace | downcase | strip -}}
+</a>
+<span class="separator">
+{{ bctSeparator }}
+</span>
+{%- endfor -%}
+{%- endif -%}
+<span class="child">
+{%- if page.alias.size > 0 -%}
+{{- page.alias | normalize_whitespace | downcase | strip -}}
+{%- else -%}
+{{- page.title | normalize_whitespace | downcase | strip -}}
+{%- endif -%}
+</span>
+</p>
+</div>
